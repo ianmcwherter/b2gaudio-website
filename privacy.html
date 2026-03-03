@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Privacy Policy — B2Gaudio</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        :root {
+            --bg: #0A0A0F;
+            --surface: #151520;
+            --accent: #FF6B35;
+            --text: #F5F5F7;
+            --text2: #A1A1AA;
+            --text3: #71717A;
+            --border: #2A2A3A;
+        }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Segoe UI', Roboto, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.7;
+            -webkit-font-smoothing: antialiased;
+        }
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 100;
+            background: rgba(10, 10, 15, 0.85);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--border);
+        }
+        .nav-inner {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 16px 24px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .logo {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--text);
+            text-decoration: none;
+            letter-spacing: -0.5px;
+        }
+        .logo span { color: var(--accent); }
+        .nav-links { display: flex; gap: 32px; list-style: none; }
+        .nav-links a {
+            color: var(--text2);
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+        .nav-links a:hover { color: var(--text); }
+        .content {
+            max-width: 760px;
+            margin: 0 auto;
+            padding: 120px 24px 80px;
+        }
+        h1 {
+            font-size: 2.4rem;
+            font-weight: 700;
+            margin-bottom: 8px;
+            letter-spacing: -0.5px;
+        }
+        .last-updated {
+            color: var(--text3);
+            font-size: 0.9rem;
+            margin-bottom: 40px;
+        }
+        h2 {
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-top: 40px;
+            margin-bottom: 12px;
+            color: var(--accent);
+        }
+        p {
+            color: var(--text2);
+            margin-bottom: 16px;
+            font-size: 0.95rem;
+        }
+        ul {
+            color: var(--text2);
+            margin-bottom: 16px;
+            padding-left: 24px;
+            font-size: 0.95rem;
+        }
+        li { margin-bottom: 8px; }
+        a { color: var(--accent); }
+        footer {
+            padding: 40px 24px;
+            border-top: 1px solid var(--border);
+            text-align: center;
+        }
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 32px;
+            margin-bottom: 16px;
+            flex-wrap: wrap;
+        }
+        .footer-links a {
+            color: var(--text2);
+            text-decoration: none;
+            font-size: 0.9rem;
+        }
+        .copyright { color: var(--text3); font-size: 0.85rem; }
+        @media (max-width: 480px) {
+            h1 { font-size: 1.8rem; }
+            .nav-links { display: none; }
+        }
+    </style>
+</head>
+<body>
+
+<nav>
+    <div class="nav-inner">
+        <a href="/" class="logo">B2G<span>audio</span></a>
+        <ul class="nav-links">
+            <li><a href="/">Home</a></li>
+            <li><a href="privacy.html">Privacy</a></li>
+            <li><a href="support.html">Support</a></li>
+        </ul>
+    </div>
+</nav>
+
+<div class="content">
+    <h1>Privacy Policy</h1>
+    <p class="last-updated">Last updated: March 3, 2026</p>
+
+    <p>B2Gaudio ("we," "our," or "the app") is committed to protecting your privacy. This Privacy Policy explains how we collect, use, and safeguard your information when you use the B2Gaudio mobile application.</p>
+
+    <h2>1. Information We Collect</h2>
+    <p>B2Gaudio is designed with privacy in mind. We collect minimal data:</p>
+    <ul>
+        <li><strong>Local device name:</strong> Your device name is used to identify you in listening sessions with nearby friends. This is only shared over your local WiFi network and is never sent to any server.</li>
+        <li><strong>Music library metadata:</strong> Song titles, artist names, and album information from files you import into the app. This data stays on your device.</li>
+        <li><strong>Streaming service tokens:</strong> If you connect Apple Music or Spotify, authentication tokens are stored locally on your device to maintain your connection. We never see or store your streaming service passwords.</li>
+    </ul>
+
+    <h2>2. Information We Do NOT Collect</h2>
+    <ul>
+        <li>We do not collect personal information such as your name, email address, or phone number.</li>
+        <li>We do not track your location.</li>
+        <li>We do not collect usage analytics or behavioral data.</li>
+        <li>We do not sell, rent, or share any data with third parties.</li>
+        <li>We do not have user accounts or registration.</li>
+    </ul>
+
+    <h2>3. How the App Works</h2>
+    <p>B2Gaudio uses Apple's MultipeerConnectivity framework to create direct peer-to-peer connections between devices on the same WiFi network. Audio data is streamed directly between devices without passing through any external server. All communication happens locally on your network.</p>
+
+    <h2>4. Third-Party Services</h2>
+    <p>B2Gaudio integrates with the following third-party services:</p>
+    <ul>
+        <li><strong>Apple Music (MusicKit):</strong> If you choose to connect Apple Music, the app uses Apple's MusicKit framework to search and play songs from the Apple Music catalog. This is governed by <a href="https://www.apple.com/legal/privacy/" target="_blank" rel="noopener">Apple's Privacy Policy</a>.</li>
+        <li><strong>Spotify:</strong> If you choose to connect Spotify, the app uses Spotify's Web API to search and control playback. Authentication uses the secure PKCE flow. This is governed by <a href="https://www.spotify.com/us/legal/privacy-policy/" target="_blank" rel="noopener">Spotify's Privacy Policy</a>.</li>
+        <li><strong>Google AdMob:</strong> The free version of B2Gaudio displays banner ads provided by Google AdMob. AdMob may collect device identifiers and usage data for ad targeting purposes. We have configured AdMob for child-safe ads (COPPA compliant) with a maximum ad content rating of "General." You can remove ads by purchasing the premium upgrade. For more information, see <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Google's Privacy Policy</a>.</li>
+    </ul>
+
+    <h2>5. Data Storage</h2>
+    <p>All app data (imported music files, playlists, preferences, and streaming service tokens) is stored locally on your device. We do not operate any servers or cloud storage. If you delete the app, all data is removed from your device.</p>
+
+    <h2>6. Children's Privacy</h2>
+    <p>B2Gaudio is suitable for users of all ages. We do not knowingly collect personal information from children under the age of 13. The app's advertising is configured to comply with the Children's Online Privacy Protection Act (COPPA), displaying only child-safe advertisements.</p>
+
+    <h2>7. In-App Purchases</h2>
+    <p>B2Gaudio offers an optional in-app purchase to remove advertisements. This transaction is processed entirely by Apple through the App Store. We do not collect or have access to any payment information.</p>
+
+    <h2>8. Your Rights</h2>
+    <p>Since we do not collect personal data on any server, there is no personal data for us to delete, modify, or export. All data is stored locally on your device and is under your control. You can delete all app data at any time by uninstalling the app.</p>
+
+    <h2>9. Changes to This Policy</h2>
+    <p>We may update this Privacy Policy from time to time. Any changes will be posted on this page with an updated "Last updated" date. We encourage you to review this page periodically.</p>
+
+    <h2>10. Contact Us</h2>
+    <p>If you have any questions or concerns about this Privacy Policy, please contact us at:</p>
+    <p><a href="mailto:b2gaudio@gmail.com">b2gaudio@gmail.com</a></p>
+</div>
+
+<footer>
+    <div class="footer-links">
+        <a href="/">Home</a>
+        <a href="privacy.html">Privacy Policy</a>
+        <a href="terms.html">Terms of Service</a>
+        <a href="support.html">Support</a>
+    </div>
+    <p class="copyright">&copy; 2026 B2Gaudio. All rights reserved.</p>
+</footer>
+
+</body>
+</html>

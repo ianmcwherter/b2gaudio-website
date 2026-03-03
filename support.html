@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Support — B2Gaudio</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        :root {
+            --bg: #0A0A0F;
+            --surface: #151520;
+            --surface2: #1E1E2E;
+            --accent: #FF6B35;
+            --text: #F5F5F7;
+            --text2: #A1A1AA;
+            --text3: #71717A;
+            --border: #2A2A3A;
+        }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Segoe UI', Roboto, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.7;
+            -webkit-font-smoothing: antialiased;
+        }
+        nav {
+            position: fixed; top: 0; width: 100%; z-index: 100;
+            background: rgba(10, 10, 15, 0.85);
+            backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--border);
+        }
+        .nav-inner {
+            max-width: 1100px; margin: 0 auto; padding: 16px 24px;
+            display: flex; justify-content: space-between; align-items: center;
+        }
+        .logo { font-size: 1.4rem; font-weight: 700; color: var(--text); text-decoration: none; letter-spacing: -0.5px; }
+        .logo span { color: var(--accent); }
+        .nav-links { display: flex; gap: 32px; list-style: none; }
+        .nav-links a { color: var(--text2); text-decoration: none; font-size: 0.9rem; font-weight: 500; transition: color 0.2s; }
+        .nav-links a:hover { color: var(--text); }
+        .content { max-width: 760px; margin: 0 auto; padding: 120px 24px 80px; }
+        h1 { font-size: 2.4rem; font-weight: 700; margin-bottom: 12px; letter-spacing: -0.5px; }
+        .subtitle { color: var(--text2); font-size: 1.05rem; margin-bottom: 48px; }
+        h2 { font-size: 1.3rem; font-weight: 600; margin-top: 40px; margin-bottom: 12px; color: var(--accent); }
+        p { color: var(--text2); margin-bottom: 16px; font-size: 0.95rem; }
+        a { color: var(--accent); }
+        .contact-card {
+            background: var(--surface); border: 1px solid var(--border); border-radius: 16px;
+            padding: 32px; margin-bottom: 32px; text-align: center;
+        }
+        .contact-card h3 { font-size: 1.1rem; margin-bottom: 8px; }
+        .contact-card p { margin-bottom: 20px; }
+        .contact-btn {
+            display: inline-flex; align-items: center; gap: 8px;
+            background: var(--accent); color: white; padding: 12px 28px;
+            border-radius: 10px; text-decoration: none; font-weight: 600; font-size: 0.95rem;
+            transition: transform 0.2s, opacity 0.2s;
+        }
+        .contact-btn:hover { transform: translateY(-2px); opacity: 0.9; color: white; }
+        .faq-item {
+            background: var(--surface); border: 1px solid var(--border); border-radius: 12px;
+            padding: 24px; margin-bottom: 16px;
+        }
+        .faq-item h3 { font-size: 1rem; font-weight: 600; margin-bottom: 8px; color: var(--text); }
+        .faq-item p { margin-bottom: 0; }
+        footer {
+            padding: 40px 24px; border-top: 1px solid var(--border); text-align: center;
+        }
+        .footer-links {
+            display: flex; justify-content: center; gap: 32px; margin-bottom: 16px; flex-wrap: wrap;
+        }
+        .footer-links a { color: var(--text2); text-decoration: none; font-size: 0.9rem; }
+        .copyright { color: var(--text3); font-size: 0.85rem; }
+        @media (max-width: 480px) {
+            h1 { font-size: 1.8rem; }
+            .nav-links { display: none; }
+        }
+    </style>
+</head>
+<body>
+
+<nav>
+    <div class="nav-inner">
+        <a href="/" class="logo">B2G<span>audio</span></a>
+        <ul class="nav-links">
+            <li><a href="/">Home</a></li>
+            <li><a href="privacy.html">Privacy</a></li>
+            <li><a href="support.html">Support</a></li>
+        </ul>
+    </div>
+</nav>
+
+<div class="content">
+    <h1>Support</h1>
+    <p class="subtitle">Need help with B2Gaudio? We're here for you.</p>
+
+    <!-- Contact -->
+    <div class="contact-card">
+        <h3>Get in Touch</h3>
+        <p>Have a question, bug report, or feature request? Send us an email and we'll get back to you as soon as possible.</p>
+        <a href="mailto:b2gaudio@gmail.com" class="contact-btn">
+            &#x2709; Email b2gaudio@gmail.com
+        </a>
+    </div>
+
+    <!-- FAQ -->
+    <h2>Frequently Asked Questions</h2>
+
+    <div class="faq-item">
+        <h3>How do I share music with friends?</h3>
+        <p>Make sure all devices are on the same WiFi network. Open B2Gaudio and tap "Start Session" to host. Your friends open the app and will see your session appear — they just tap to join. That's it!</p>
+    </div>
+
+    <div class="faq-item">
+        <h3>Do I need an internet connection?</h3>
+        <p>No! B2Gaudio works entirely over your local WiFi network using peer-to-peer connections. No internet is required for sharing local files. However, if you want to search Apple Music or Spotify, you'll need internet for those searches.</p>
+    </div>
+
+    <div class="faq-item">
+        <h3>How do I add music to the app?</h3>
+        <p>There are three ways: (1) Import local files (MP3, M4A, WAV, etc.) by tapping the + button in the Library tab. (2) Search Apple Music from the search tab in Library. (3) Search Spotify from the search tab in Library. You can connect Apple Music and Spotify from the Settings tab.</p>
+    </div>
+
+    <div class="faq-item">
+        <h3>How do I connect Apple Music?</h3>
+        <p>Go to Settings in the app and tap "Apple Music" under Streaming Services. The app will ask for permission to access Apple Music. Once granted, you can search and play songs from the Apple Music catalog. You need an active Apple Music subscription.</p>
+    </div>
+
+    <div class="faq-item">
+        <h3>How do I connect Spotify?</h3>
+        <p>Go to Settings in the app and tap "Spotify" under Streaming Services. You'll be redirected to Spotify's website to log in and authorize B2Gaudio. Once connected, you can search Spotify from the Library. You need a Spotify Premium account for full playback control.</p>
+    </div>
+
+    <div class="faq-item">
+        <h3>How do I remove ads?</h3>
+        <p>Go to Settings and tap the "Remove Ads" button under the Premium section. It's a one-time purchase of $0.99 that permanently removes all banner ads from the app. If you've already purchased, tap "Restore Purchases."</p>
+    </div>
+
+    <div class="faq-item">
+        <h3>Why can't my friend see my session?</h3>
+        <p>Make sure both devices are connected to the same WiFi network. Also check that "Local Network" permissions are enabled for B2Gaudio in your iPhone's Settings app (Settings &gt; Privacy &amp; Security &gt; Local Network). Try restarting the session if it still doesn't appear.</p>
+    </div>
+
+    <div class="faq-item">
+        <h3>What audio formats are supported?</h3>
+        <p>B2Gaudio supports MP3, M4A, WAV, AIFF, AAC, FLAC, and OGG audio files. For video, it supports MP4, MOV, AVI, and MKV files.</p>
+    </div>
+
+    <div class="faq-item">
+        <h3>How do I reorder songs?</h3>
+        <p>In the Library, tap "Reorder" in the top left. You can then drag and drop songs to rearrange them. The same works in Mixtapes and in the playback queue (tap the queue button in the Now Playing screen).</p>
+    </div>
+
+    <div class="faq-item">
+        <h3>Is my data private?</h3>
+        <p>Yes. B2Gaudio doesn't collect any personal data or send anything to external servers. All your music, playlists, and preferences stay on your device. See our <a href="privacy.html">Privacy Policy</a> for full details.</p>
+    </div>
+
+    <h2>System Requirements</h2>
+    <p>B2Gaudio requires iOS 16.0 or later and works on iPhone. A WiFi connection is needed for sharing music between devices.</p>
+
+    <h2>Still Need Help?</h2>
+    <p>If your question isn't answered above, please email us at <a href="mailto:b2gaudio@gmail.com">b2gaudio@gmail.com</a> with a description of the issue and your device model. We'll do our best to help!</p>
+</div>
+
+<footer>
+    <div class="footer-links">
+        <a href="/">Home</a>
+        <a href="privacy.html">Privacy Policy</a>
+        <a href="terms.html">Terms of Service</a>
+        <a href="support.html">Support</a>
+    </div>
+    <p class="copyright">&copy; 2026 B2Gaudio. All rights reserved.</p>
+</footer>
+
+</body>
+</html>
