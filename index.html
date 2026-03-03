@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>B2Gaudio — Music is. Better 2Gether.</title>
+    <meta name="description" content="B2Gaudio lets you share music and listen together with friends over WiFi. Connect with Apple Music, Spotify, or your own local files.">
+    <meta name="apple-itunes-app" content="app-id=YOUR_APP_ID">
+    <link rel="icon" type="image/png" href="favicon.png">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        :root {
+            --bg: #0A0A0F;
+            --surface: #151520;
+            --surface2: #1E1E2E;
+            --accent: #FF6B35;
+            --accent-dim: #CC5529;
+            --text: #F5F5F7;
+            --text2: #A1A1AA;
+            --text3: #71717A;
+            --border: #2A2A3A;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Segoe UI', Roboto, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 100;
+            background: rgba(10, 10, 15, 0.85);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .nav-inner {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 16px 24px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--text);
+            text-decoration: none;
+            letter-spacing: -0.5px;
+        }
+
+        .logo span { color: var(--accent); }
+
+        .nav-links {
+            display: flex;
+            gap: 32px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--text2);
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+
+        .nav-links a:hover { color: var(--text); }
+
+        /* Hero */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 120px 24px 80px;
+            background: radial-gradient(ellipse at 50% 30%, rgba(255, 107, 53, 0.08) 0%, transparent 60%);
+        }
+
+        .hero-content { max-width: 700px; }
+
+        .hero-icon {
+            width: 100px;
+            height: 100px;
+            border-radius: 22px;
+            background: linear-gradient(135deg, var(--accent), #FF8F65);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 40px;
+            box-shadow: 0 20px 60px rgba(255, 107, 53, 0.25);
+        }
+
+        .hero-icon svg {
+            width: 50px;
+            height: 50px;
+            fill: white;
+        }
+
+        .hero h1 {
+            font-size: 3.2rem;
+            font-weight: 800;
+            line-height: 1.1;
+            margin-bottom: 8px;
+            letter-spacing: -1.5px;
+        }
+
+        .tagline {
+            font-size: 1.5rem;
+            color: var(--accent);
+            font-weight: 600;
+            margin-bottom: 24px;
+            font-style: italic;
+        }
+
+        .hero p {
+            font-size: 1.15rem;
+            color: var(--text2);
+            max-width: 520px;
+            margin: 0 auto 40px;
+            line-height: 1.7;
+        }
+
+        .app-store-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            background: var(--text);
+            color: var(--bg);
+            padding: 14px 32px;
+            border-radius: 12px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.05rem;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .app-store-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 30px rgba(255, 255, 255, 0.1);
+        }
+
+        .app-store-btn svg {
+            width: 24px;
+            height: 24px;
+            fill: var(--bg);
+        }
+
+        /* Features */
+        .features {
+            padding: 100px 24px;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .features h2 {
+            text-align: center;
+            font-size: 2.2rem;
+            font-weight: 700;
+            margin-bottom: 60px;
+            letter-spacing: -0.5px;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 24px;
+        }
+
+        .feature-card {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 32px;
+            transition: border-color 0.3s, transform 0.2s;
+        }
+
+        .feature-card:hover {
+            border-color: var(--accent-dim);
+            transform: translateY(-4px);
+        }
+
+        .feature-icon {
+            width: 48px;
+            height: 48px;
+            border-radius: 12px;
+            background: var(--surface2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+            font-size: 1.4rem;
+        }
+
+        .feature-card h3 {
+            font-size: 1.15rem;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+
+        .feature-card p {
+            color: var(--text2);
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        /* How It Works */
+        .how-it-works {
+            padding: 100px 24px;
+            background: var(--surface);
+            border-top: 1px solid var(--border);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .how-inner {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .how-it-works h2 {
+            text-align: center;
+            font-size: 2.2rem;
+            font-weight: 700;
+            margin-bottom: 60px;
+            letter-spacing: -0.5px;
+        }
+
+        .steps {
+            display: flex;
+            flex-direction: column;
+            gap: 40px;
+        }
+
+        .step {
+            display: flex;
+            gap: 24px;
+            align-items: flex-start;
+        }
+
+        .step-num {
+            width: 48px;
+            height: 48px;
+            min-width: 48px;
+            border-radius: 50%;
+            background: var(--accent);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 1.2rem;
+        }
+
+        .step h3 {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 6px;
+        }
+
+        .step p {
+            color: var(--text2);
+            font-size: 0.95rem;
+        }
+
+        /* Services */
+        .services {
+            padding: 100px 24px;
+            max-width: 1100px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .services h2 {
+            font-size: 2.2rem;
+            font-weight: 700;
+            margin-bottom: 16px;
+            letter-spacing: -0.5px;
+        }
+
+        .services > p {
+            color: var(--text2);
+            font-size: 1.05rem;
+            margin-bottom: 48px;
+        }
+
+        .service-logos {
+            display: flex;
+            justify-content: center;
+            gap: 48px;
+            flex-wrap: wrap;
+        }
+
+        .service-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .service-icon {
+            width: 72px;
+            height: 72px;
+            border-radius: 16px;
+            background: var(--surface);
+            border: 1px solid var(--border);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+        }
+
+        .service-item span {
+            color: var(--text2);
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
+        /* Footer */
+        footer {
+            padding: 60px 24px 40px;
+            border-top: 1px solid var(--border);
+            text-align: center;
+        }
+
+        .footer-inner {
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 32px;
+            margin-bottom: 24px;
+            flex-wrap: wrap;
+        }
+
+        .footer-links a {
+            color: var(--text2);
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: color 0.2s;
+        }
+
+        .footer-links a:hover { color: var(--text); }
+
+        .copyright {
+            color: var(--text3);
+            font-size: 0.85rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2.2rem; }
+            .tagline { font-size: 1.2rem; }
+            .hero p { font-size: 1rem; }
+            .features h2, .how-it-works h2, .services h2 { font-size: 1.8rem; }
+            .nav-links { gap: 20px; }
+            .nav-links a { font-size: 0.8rem; }
+            .features-grid { grid-template-columns: 1fr; }
+            .service-logos { gap: 32px; }
+        }
+
+        @media (max-width: 480px) {
+            .nav-links { display: none; }
+            .hero h1 { font-size: 1.8rem; }
+        }
+    </style>
+</head>
+<body>
+
+<!-- Navigation -->
+<nav>
+    <div class="nav-inner">
+        <a href="/" class="logo">B2G<span>audio</span></a>
+        <ul class="nav-links">
+            <li><a href="#features">Features</a></li>
+            <li><a href="#how-it-works">How It Works</a></li>
+            <li><a href="privacy.html">Privacy</a></li>
+            <li><a href="support.html">Support</a></li>
+        </ul>
+    </div>
+</nav>
+
+<!-- Hero -->
+<section class="hero">
+    <div class="hero-content">
+        <div class="hero-icon">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path d="M12 3v10.55c-.59-.34-1.27-.55-2-.55C7.79 13 6 14.79 6 17s1.79 4 4 4 4-1.79 4-4V7h4V3h-6z"/>
+            </svg>
+        </div>
+        <h1>B2Gaudio</h1>
+        <div class="tagline">Music is. Better 2Gether.</div>
+        <p>Share music and listen together with friends over WiFi. One phone hosts, everyone listens in perfect sync. No accounts needed, no internet required.</p>
+        <a href="#" class="app-store-btn">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/>
+            </svg>
+            Download on the App Store
+        </a>
+    </div>
+</section>
+
+<!-- Features -->
+<section class="features" id="features">
+    <h2>Everything You Need to Listen Together</h2>
+    <div class="features-grid">
+        <div class="feature-card">
+            <div class="feature-icon">&#x1F4F6;</div>
+            <h3>WiFi-Only Sharing</h3>
+            <p>No internet needed. Connect directly with friends over your local WiFi network using peer-to-peer technology. Fast, private, and reliable.</p>
+        </div>
+        <div class="feature-card">
+            <div class="feature-icon">&#x1F3B5;</div>
+            <h3>Any Music Source</h3>
+            <p>Import your own MP3s, search Apple Music, or browse Spotify. B2Gaudio works with the music you already have and love.</p>
+        </div>
+        <div class="feature-card">
+            <div class="feature-icon">&#x1F465;</div>
+            <h3>Synchronized Listening</h3>
+            <p>One person hosts a session, others join and hear the same music at the same time. Like a silent disco with your friends.</p>
+        </div>
+        <div class="feature-card">
+            <div class="feature-icon">&#x1F4CB;</div>
+            <h3>Create Mixtapes</h3>
+            <p>Build playlists from any source and share them with your group. Drag and drop to reorder, shuffle for variety.</p>
+        </div>
+        <div class="feature-card">
+            <div class="feature-icon">&#x1F500;</div>
+            <h3>Full Player Controls</h3>
+            <p>Play, pause, skip, rewind, shuffle, and reorder your queue. All the controls you expect from a modern music player.</p>
+        </div>
+        <div class="feature-card">
+            <div class="feature-icon">&#x1F512;</div>
+            <h3>Private &amp; Secure</h3>
+            <p>Your music stays on your network. No data sent to servers, no tracking, no accounts required. Just you and your friends.</p>
+        </div>
+    </div>
+</section>
+
+<!-- How It Works -->
+<section class="how-it-works" id="how-it-works">
+    <div class="how-inner">
+        <h2>How It Works</h2>
+        <div class="steps">
+            <div class="step">
+                <div class="step-num">1</div>
+                <div>
+                    <h3>Import or Connect Your Music</h3>
+                    <p>Add local audio files from your device, connect Apple Music, or link your Spotify account. All your music in one place.</p>
+                </div>
+            </div>
+            <div class="step">
+                <div class="step-num">2</div>
+                <div>
+                    <h3>Host a Listening Session</h3>
+                    <p>Tap "Start Session" to create a room. Your phone becomes the host, broadcasting to anyone on the same WiFi network.</p>
+                </div>
+            </div>
+            <div class="step">
+                <div class="step-num">3</div>
+                <div>
+                    <h3>Friends Join In</h3>
+                    <p>Nearby friends open B2Gaudio and see your session. One tap to join, and they're listening along in perfect sync.</p>
+                </div>
+            </div>
+            <div class="step">
+                <div class="step-num">4</div>
+                <div>
+                    <h3>Enjoy Together</h3>
+                    <p>Build the queue together, share mixtapes, and enjoy the music. It's that simple.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Supported Services -->
+<section class="services" id="services">
+    <h2>Works With Your Music</h2>
+    <p>Connect the services you already use, or import your own files.</p>
+    <div class="service-logos">
+        <div class="service-item">
+            <div class="service-icon">&#x1F3B5;</div>
+            <span>Local Files</span>
+        </div>
+        <div class="service-item">
+            <div class="service-icon">&#xF8FF;</div>
+            <span>Apple Music</span>
+        </div>
+        <div class="service-item">
+            <div class="service-icon">&#x1F3A7;</div>
+            <span>Spotify</span>
+        </div>
+    </div>
+</section>
+
+<!-- Footer -->
+<footer>
+    <div class="footer-inner">
+        <div class="footer-links">
+            <a href="privacy.html">Privacy Policy</a>
+            <a href="terms.html">Terms of Service</a>
+            <a href="support.html">Support</a>
+            <a href="mailto:b2gaudio@gmail.com">Contact</a>
+        </div>
+        <p class="copyright">&copy; 2026 B2Gaudio. All rights reserved.</p>
+    </div>
+</footer>
+
+</body>
+</html>
