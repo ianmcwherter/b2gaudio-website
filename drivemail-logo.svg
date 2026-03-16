@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#1E88E5"/>
+      <stop offset="100%" style="stop-color:#0D47A1"/>
+    </linearGradient>
+    <linearGradient id="envGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#FFFFFF"/>
+      <stop offset="100%" style="stop-color:#E3F2FD"/>
+    </linearGradient>
+    <linearGradient id="waveGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#64B5F6"/>
+      <stop offset="100%" style="stop-color:#42A5F5"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Rounded square background -->
+  <rect x="0" y="0" width="512" height="512" rx="112" ry="112" fill="url(#bgGrad)"/>
+
+  <!-- Subtle road lines at bottom -->
+  <path d="M0 420 Q128 400, 256 410 Q384 420, 512 400 L512 512 Q384 512, 256 512 Q128 512, 0 512 Z" fill="#1565C0" opacity="0.3"/>
+  <line x1="180" y1="445" x2="230" y2="443" stroke="#64B5F6" stroke-width="3" stroke-linecap="round" opacity="0.5"/>
+  <line x1="270" y1="445" x2="320" y2="447" stroke="#64B5F6" stroke-width="3" stroke-linecap="round" opacity="0.5"/>
+
+  <!-- Envelope body -->
+  <rect x="96" y="160" width="320" height="220" rx="24" ry="24" fill="url(#envGrad)" opacity="0.95"/>
+
+  <!-- Envelope flap (V shape) -->
+  <path d="M96 184 L256 300 L416 184" fill="none" stroke="#1E88E5" stroke-width="8" stroke-linecap="round" stroke-linejoin="round" opacity="0.6"/>
+
+  <!-- Sound waves coming from envelope (representing voice) -->
+  <path d="M340 240 Q360 240, 370 220" fill="none" stroke="url(#waveGrad)" stroke-width="7" stroke-linecap="round" opacity="0.9"/>
+  <path d="M340 240 Q370 240, 390 210" fill="none" stroke="url(#waveGrad)" stroke-width="6" stroke-linecap="round" opacity="0.7"/>
+  <path d="M340 240 Q380 240, 410 200" fill="none" stroke="url(#waveGrad)" stroke-width="5" stroke-linecap="round" opacity="0.5"/>
+
+  <!-- Small microphone icon inside envelope -->
+  <rect x="240" y="230" width="32" height="48" rx="16" ry="16" fill="#1E88E5"/>
+  <path d="M236 270 Q236 295, 256 295 Q276 295, 276 270" fill="none" stroke="#1E88E5" stroke-width="5" stroke-linecap="round"/>
+  <line x1="256" y1="295" x2="256" y2="315" stroke="#1E88E5" stroke-width="5" stroke-linecap="round"/>
+  <line x1="242" y1="315" x2="270" y2="315" stroke="#1E88E5" stroke-width="5" stroke-linecap="round"/>
+
+  <!-- Steering wheel hint at top -->
+  <circle cx="256" cy="95" r="42" fill="none" stroke="#FFFFFF" stroke-width="6" opacity="0.8"/>
+  <circle cx="256" cy="95" r="10" fill="#FFFFFF" opacity="0.8"/>
+  <line x1="256" y1="63" x2="256" y2="53" stroke="#FFFFFF" stroke-width="5" stroke-linecap="round" opacity="0.8"/>
+  <line x1="224" y1="107" x2="216" y2="113" stroke="#FFFFFF" stroke-width="5" stroke-linecap="round" opacity="0.8"/>
+  <line x1="288" y1="107" x2="296" y2="113" stroke="#FFFFFF" stroke-width="5" stroke-linecap="round" opacity="0.8"/>
+</svg>

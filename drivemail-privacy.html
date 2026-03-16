@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Privacy Policy — DriveMail Voice</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        :root {
+            --bg: #0A0A0F;
+            --surface: #151520;
+            --accent: #FF6B35;
+            --text: #F5F5F7;
+            --text2: #A1A1AA;
+            --text3: #71717A;
+            --border: #2A2A3A;
+        }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Segoe UI', Roboto, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.7;
+            -webkit-font-smoothing: antialiased;
+        }
+        nav {
+            position: fixed; top: 0; width: 100%; z-index: 100;
+            background: rgba(10, 10, 15, 0.85);
+            backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--border);
+        }
+        .nav-inner {
+            max-width: 1100px; margin: 0 auto; padding: 16px 24px;
+            display: flex; justify-content: space-between; align-items: center;
+        }
+        .logo { font-size: 1.4rem; font-weight: 700; color: var(--text); text-decoration: none; letter-spacing: -0.5px; }
+        .logo span { color: var(--accent); }
+        .nav-links { display: flex; gap: 32px; list-style: none; }
+        .nav-links a { color: var(--text2); text-decoration: none; font-size: 0.9rem; font-weight: 500; transition: color 0.2s; }
+        .nav-links a:hover { color: var(--text); }
+        .content { max-width: 760px; margin: 0 auto; padding: 120px 24px 80px; }
+        .app-badge {
+            display: inline-flex; align-items: center; gap: 10px;
+            background: var(--surface); border: 1px solid var(--border);
+            border-radius: 12px; padding: 8px 16px; margin-bottom: 24px;
+        }
+        .app-badge svg { width: 28px; height: 28px; }
+        .app-badge span { font-size: 0.95rem; font-weight: 600; color: var(--text2); }
+        h1 { font-size: 2.4rem; font-weight: 700; margin-bottom: 8px; letter-spacing: -0.5px; }
+        .last-updated { color: var(--text3); font-size: 0.9rem; margin-bottom: 40px; }
+        h2 { font-size: 1.3rem; font-weight: 600; margin-top: 40px; margin-bottom: 12px; color: var(--accent); }
+        p { color: var(--text2); margin-bottom: 16px; font-size: 0.95rem; }
+        ul { color: var(--text2); margin-bottom: 16px; padding-left: 24px; font-size: 0.95rem; }
+        li { margin-bottom: 8px; }
+        a { color: var(--accent); }
+        footer {
+            padding: 40px 24px; border-top: 1px solid var(--border); text-align: center;
+        }
+        .footer-links {
+            display: flex; justify-content: center; gap: 32px; margin-bottom: 16px; flex-wrap: wrap;
+        }
+        .footer-links a { color: var(--text2); text-decoration: none; font-size: 0.9rem; }
+        .copyright { color: var(--text3); font-size: 0.85rem; }
+        @media (max-width: 480px) {
+            h1 { font-size: 1.8rem; }
+            .nav-links { display: none; }
+        }
+    </style>
+</head>
+<body>
+
+<nav>
+    <div class="nav-inner">
+        <a href="/" class="logo">B2G<span>audio</span></a>
+        <ul class="nav-links">
+            <li><a href="/">Home</a></li>
+            <li><a href="privacy.html">Privacy</a></li>
+            <li><a href="support.html">Support</a></li>
+        </ul>
+    </div>
+</nav>
+
+<div class="content">
+    <div class="app-badge">
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect x="2" y="4" width="20" height="16" rx="3" stroke="#FF6B35" stroke-width="1.5" fill="none"/>
+            <path d="M7 9h10M7 13h6" stroke="#FF6B35" stroke-width="1.5" stroke-linecap="round"/>
+            <circle cx="18" cy="13" r="2" fill="#FF6B35"/>
+        </svg>
+        <span>DriveMail Voice</span>
+    </div>
+
+    <h1>Privacy Policy</h1>
+    <p class="last-updated">Last updated: March 15, 2026</p>
+
+    <p>DriveMail Voice ("we," "our," or "the App") is committed to protecting your privacy. This Privacy Policy explains how we collect, use, and safeguard your information when you use the DriveMail Voice mobile application for iOS and CarPlay.</p>
+
+    <h2>1. Information We Collect</h2>
+    <p>DriveMail Voice accesses the following data to provide its core functionality:</p>
+    <ul>
+        <li><strong>Email content:</strong> The App fetches unread email messages (sender, subject, body) from your connected email accounts to read them aloud. Email content is held in memory only during active use and is never written to disk or stored persistently.</li>
+        <li><strong>OAuth tokens:</strong> If you connect Gmail or Outlook, authentication tokens are stored securely in your device's Keychain. We never see or store your email passwords.</li>
+        <li><strong>IMAP credentials:</strong> If you connect an iCloud or other IMAP email account, your app-specific password is stored securely in the device Keychain and is never transmitted to any external server.</li>
+        <li><strong>Voice input:</strong> When using voice commands or dictating replies, audio is processed on-device using Apple's Speech Recognition framework. Audio data is not stored or transmitted to our servers.</li>
+    </ul>
+
+    <h2>2. Information We Do NOT Collect</h2>
+    <ul>
+        <li>We do not store email content on disk or on any server.</li>
+        <li>We do not track your location.</li>
+        <li>We do not collect usage analytics or behavioral data.</li>
+        <li>We do not sell, rent, or share any data with third parties (other than as described in the Third-Party Services section below).</li>
+        <li>We do not operate any backend server. All processing happens entirely on your device.</li>
+    </ul>
+
+    <h2>3. How the App Works</h2>
+    <p>DriveMail Voice connects directly to your email providers (Gmail, Outlook, or IMAP) using industry-standard protocols and APIs. Emails are fetched, read aloud using on-device text-to-speech, and optionally summarized using on-device AI. Voice replies are dictated using Apple's Speech Recognition, then sent through your email provider's API. All communication occurs directly between your device and your email provider over encrypted HTTPS connections.</p>
+
+    <h2>4. Email Provider Access</h2>
+    <p>The App requests the following access from each email provider:</p>
+    <ul>
+        <li><strong>Gmail:</strong> Read email messages, modify email labels (mark as read), and send email on your behalf. These permissions use Google's OAuth 2.0 with scopes limited to gmail.readonly, gmail.modify, and gmail.send.</li>
+        <li><strong>Outlook:</strong> Read and modify email messages (mark as read) and send email on your behalf. These permissions use Microsoft's MSAL authentication with scopes limited to Mail.ReadWrite and Mail.Send.</li>
+        <li><strong>iCloud / IMAP:</strong> Access your inbox via IMAP to fetch unread emails and mark them as read, and send replies via SMTP. Requires an app-specific password generated through your Apple ID settings.</li>
+    </ul>
+    <p>You can revoke access at any time through your email provider's security settings or by removing the account from the App.</p>
+
+    <h2>5. AI Summarization</h2>
+    <p>DriveMail Voice offers optional AI-powered email summaries. Summarization runs entirely on your device using Apple's built-in machine learning frameworks or a local extractive algorithm. No email content is ever sent to external AI services or cloud APIs for processing.</p>
+
+    <h2>6. Third-Party Services</h2>
+    <ul>
+        <li><strong>Google Gmail API:</strong> Used for email access if you connect a Gmail account. Governed by <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Google's Privacy Policy</a>.</li>
+        <li><strong>Microsoft Graph API:</strong> Used for email access if you connect an Outlook account. Governed by <a href="https://privacy.microsoft.com/en-us/privacystatement" target="_blank" rel="noopener">Microsoft's Privacy Statement</a>.</li>
+        <li><strong>Google AdMob:</strong> The free version of DriveMail Voice displays a banner ad on the iPhone home screen only (never in CarPlay). AdMob may collect device identifiers and usage data for ad targeting purposes. You can remove ads by purchasing the premium upgrade. See <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Google's Privacy Policy</a>.</li>
+        <li><strong>Apple Speech Recognition:</strong> Voice commands and dictation use Apple's SFSpeechRecognizer framework. Audio processing may involve Apple's servers depending on device capabilities. See <a href="https://www.apple.com/legal/privacy/" target="_blank" rel="noopener">Apple's Privacy Policy</a>.</li>
+    </ul>
+
+    <h2>7. Data Storage and Security</h2>
+    <p>All sensitive credentials (OAuth tokens, IMAP passwords) are stored in the iOS Keychain, Apple's secure encrypted storage. Email content is held in memory only and is cleared when you leave the playback session or when the app enters the background. We do not operate any servers or cloud storage. HTTPS is enforced for all network requests.</p>
+
+    <h2>8. CarPlay</h2>
+    <p>When used with CarPlay, DriveMail Voice operates in a voice-only mode with minimal visual elements. No advertisements are displayed in CarPlay. The same privacy protections apply in CarPlay as on iPhone.</p>
+
+    <h2>9. Children's Privacy</h2>
+    <p>DriveMail Voice is not intended for use by children under the age of 13. We do not knowingly collect personal information from children. If you believe a child has provided personal information through the App, please contact us so we can address it.</p>
+
+    <h2>10. In-App Purchases</h2>
+    <p>DriveMail Voice offers an optional one-time purchase to remove advertisements. This transaction is processed entirely by Apple through the App Store. We do not collect or have access to any payment information.</p>
+
+    <h2>11. Your Rights</h2>
+    <p>Since we do not collect or store personal data on any server, there is no personal data for us to delete, modify, or export. All data is stored locally on your device and is under your full control. You can revoke email access at any time through your provider's settings, and delete all local app data by uninstalling the App.</p>
+
+    <h2>12. Changes to This Policy</h2>
+    <p>We may update this Privacy Policy from time to time. Any changes will be posted on this page with an updated "Last updated" date. We encourage you to review this page periodically.</p>
+
+    <h2>13. Contact Us</h2>
+    <p>If you have any questions or concerns about this Privacy Policy, please contact us at:</p>
+    <p><a href="mailto:b2gaudio@gmail.com">b2gaudio@gmail.com</a></p>
+</div>
+
+<footer>
+    <div class="footer-links">
+        <a href="/">Home</a>
+        <a href="drivemail-privacy.html">DriveMail Privacy</a>
+        <a href="drivemail-terms.html">DriveMail Terms</a>
+        <a href="privacy.html">B2Gaudio Privacy</a>
+        <a href="terms.html">B2Gaudio Terms</a>
+        <a href="support.html">Support</a>
+    </div>
+    <p class="copyright">&copy; 2026 B2Gaudio. All rights reserved.</p>
+</footer>
+
+</body>
+</html>
