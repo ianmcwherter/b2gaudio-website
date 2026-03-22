@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>B2Gaudio — Music is. Better 2Gether.</title>
-    <meta name="description" content="B2Gaudio lets you share music and listen together with friends over WiFi. Connect with Apple Music, Spotify, or your own local files.">
-    <meta name="apple-itunes-app" content="app-id=YOUR_APP_ID">
+    <title>DriveMail Voice — Hands-Free Email for Drivers</title>
+    <meta name="description" content="DriveMail Voice reads your emails aloud so you can stay informed on the road. CarPlay support, voice replies, AI summaries, and total privacy.">
+    <meta name="apple-itunes-app" content="app-id=6760625295">
     <link rel="icon" type="image/png" href="favicon.png">
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -14,8 +14,9 @@
             --bg: #0A0A0F;
             --surface: #151520;
             --surface2: #1E1E2E;
-            --accent: #FF6B35;
-            --accent-dim: #CC5529;
+            --accent: #4A90D9;
+            --accent-dim: #3A7BC8;
+            --accent-glow: rgba(74, 144, 217, 0.15);
             --text: #F5F5F7;
             --text2: #A1A1AA;
             --text3: #71717A;
@@ -52,18 +53,30 @@
         }
 
         .logo {
-            font-size: 1.4rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
+        }
+
+        .logo img {
+            width: 36px;
+            height: 36px;
+            border-radius: 8px;
+        }
+
+        .logo-text {
+            font-size: 1.3rem;
             font-weight: 700;
             color: var(--text);
-            text-decoration: none;
             letter-spacing: -0.5px;
         }
 
-        .logo span { color: var(--accent); }
+        .logo-text span { color: var(--accent); }
 
         .nav-links {
             display: flex;
-            gap: 32px;
+            gap: 28px;
             list-style: none;
         }
 
@@ -85,27 +98,24 @@
             justify-content: center;
             text-align: center;
             padding: 120px 24px 80px;
-            background: radial-gradient(ellipse at 50% 30%, rgba(255, 107, 53, 0.08) 0%, transparent 60%);
+            background: radial-gradient(ellipse at 50% 30%, var(--accent-glow) 0%, transparent 60%);
         }
 
-        .hero-content { max-width: 700px; }
+        .hero-content { max-width: 720px; }
 
         .hero-icon {
-            width: 100px;
-            height: 100px;
-            border-radius: 22px;
-            background: linear-gradient(135deg, var(--accent), #FF8F65);
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            width: 120px;
+            height: 120px;
+            border-radius: 28px;
+            overflow: hidden;
             margin: 0 auto 40px;
-            box-shadow: 0 20px 60px rgba(255, 107, 53, 0.25);
+            box-shadow: 0 20px 60px rgba(74, 144, 217, 0.25);
         }
 
-        .hero-icon svg {
-            width: 50px;
-            height: 50px;
-            fill: white;
+        .hero-icon img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
         }
 
         .hero h1 {
@@ -127,7 +137,7 @@
         .hero p {
             font-size: 1.15rem;
             color: var(--text2);
-            max-width: 520px;
+            max-width: 540px;
             margin: 0 auto 40px;
             line-height: 1.7;
         }
@@ -273,42 +283,120 @@
             font-size: 0.95rem;
         }
 
-        /* Services */
-        .services {
+        /* Pricing */
+        .pricing {
             padding: 100px 24px;
-            max-width: 1100px;
+            max-width: 800px;
             margin: 0 auto;
             text-align: center;
         }
 
-        .services h2 {
+        .pricing h2 {
             font-size: 2.2rem;
             font-weight: 700;
             margin-bottom: 16px;
             letter-spacing: -0.5px;
         }
 
-        .services > p {
+        .pricing > p {
             color: var(--text2);
             font-size: 1.05rem;
             margin-bottom: 48px;
         }
 
-        .service-logos {
+        .pricing-cards {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 24px;
+        }
+
+        .pricing-card {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 32px;
+            text-align: center;
+        }
+
+        .pricing-card.featured {
+            border-color: var(--accent);
+            box-shadow: 0 0 30px var(--accent-glow);
+        }
+
+        .pricing-card h3 {
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        .price {
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 4px;
+        }
+
+        .price-sub {
+            color: var(--text3);
+            font-size: 0.85rem;
+            margin-bottom: 24px;
+        }
+
+        .pricing-card ul {
+            list-style: none;
+            padding: 0;
+            text-align: left;
+        }
+
+        .pricing-card li {
+            color: var(--text2);
+            font-size: 0.9rem;
+            padding: 8px 0;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .pricing-card li:last-child { border-bottom: none; }
+
+        .pricing-card li::before {
+            content: "\2713  ";
+            color: var(--accent);
+            font-weight: 700;
+        }
+
+        /* Providers */
+        .providers {
+            padding: 80px 24px;
+            max-width: 1100px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .providers h2 {
+            font-size: 2.2rem;
+            font-weight: 700;
+            margin-bottom: 16px;
+        }
+
+        .providers > p {
+            color: var(--text2);
+            font-size: 1.05rem;
+            margin-bottom: 48px;
+        }
+
+        .provider-logos {
             display: flex;
             justify-content: center;
             gap: 48px;
             flex-wrap: wrap;
         }
 
-        .service-item {
+        .provider-item {
             display: flex;
             flex-direction: column;
             align-items: center;
             gap: 12px;
         }
 
-        .service-icon {
+        .provider-icon {
             width: 72px;
             height: 72px;
             border-radius: 16px;
@@ -320,7 +408,7 @@
             font-size: 1.8rem;
         }
 
-        .service-item span {
+        .provider-item span {
             color: var(--text2);
             font-size: 0.9rem;
             font-weight: 500;
@@ -342,7 +430,7 @@
             display: flex;
             justify-content: center;
             gap: 32px;
-            margin-bottom: 24px;
+            margin-bottom: 16px;
             flex-wrap: wrap;
         }
 
@@ -358,6 +446,7 @@
         .copyright {
             color: var(--text3);
             font-size: 0.85rem;
+            margin-top: 8px;
         }
 
         /* Responsive */
@@ -365,11 +454,11 @@
             .hero h1 { font-size: 2.2rem; }
             .tagline { font-size: 1.2rem; }
             .hero p { font-size: 1rem; }
-            .features h2, .how-it-works h2, .services h2 { font-size: 1.8rem; }
+            .features h2, .how-it-works h2, .pricing h2, .providers h2 { font-size: 1.8rem; }
             .nav-links { gap: 20px; }
             .nav-links a { font-size: 0.8rem; }
             .features-grid { grid-template-columns: 1fr; }
-            .service-logos { gap: 32px; }
+            .pricing-cards { grid-template-columns: 1fr; }
         }
 
         @media (max-width: 480px) {
@@ -383,13 +472,16 @@
 <!-- Navigation -->
 <nav>
     <div class="nav-inner">
-        <a href="/" class="logo">B2G<span>audio</span></a>
+        <a href="drivemail.html" class="logo">
+            <img src="drivemail-logo.png" alt="DriveMail Voice">
+            <span class="logo-text">Drive<span>Mail</span> Voice</span>
+        </a>
         <ul class="nav-links">
             <li><a href="#features">Features</a></li>
             <li><a href="#how-it-works">How It Works</a></li>
-            <li><a href="drivemail.html">DriveMail Voice</a></li>
-            <li><a href="privacy.html">Privacy</a></li>
-            <li><a href="support.html">Support</a></li>
+            <li><a href="#pricing">Pricing</a></li>
+            <li><a href="drivemail-support.html">Support</a></li>
+            <li><a href="drivemail-privacy.html">Privacy</a></li>
         </ul>
     </div>
 </nav>
@@ -398,14 +490,12 @@
 <section class="hero">
     <div class="hero-content">
         <div class="hero-icon">
-            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                <path d="M12 3v10.55c-.59-.34-1.27-.55-2-.55C7.79 13 6 14.79 6 17s1.79 4 4 4 4-1.79 4-4V7h4V3h-6z"/>
-            </svg>
+            <img src="drivemail-logo.png" alt="DriveMail Voice App Icon">
         </div>
-        <h1>B2Gaudio</h1>
-        <div class="tagline">Music is. Better 2Gether.</div>
-        <p>Share music and listen together with friends over WiFi. One phone hosts, everyone listens in perfect sync. No accounts needed, no internet required.</p>
-        <a href="#" class="app-store-btn">
+        <h1>DriveMail Voice</h1>
+        <div class="tagline">Your emails, read aloud.</div>
+        <p>The hands-free email app for drivers. DriveMail Voice reads your unread emails aloud, lets you reply by voice, and works seamlessly with Apple CarPlay. Stay informed without taking your eyes off the road.</p>
+        <a href="https://apps.apple.com/app/id6760625295" class="app-store-btn">
             <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                 <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/>
             </svg>
@@ -416,37 +506,37 @@
 
 <!-- Features -->
 <section class="features" id="features">
-    <h2>Everything You Need to Listen Together</h2>
+    <h2>Everything You Need, Hands-Free</h2>
     <div class="features-grid">
         <div class="feature-card">
-            <div class="feature-icon">&#x1F4F6;</div>
-            <h3>WiFi-Only Sharing</h3>
-            <p>No internet needed. Connect directly with friends over your local WiFi network using peer-to-peer technology. Fast, private, and reliable.</p>
+            <div class="feature-icon">&#x1F50A;</div>
+            <h3>Read Aloud</h3>
+            <p>DriveMail Voice reads your unread emails aloud — sender, subject, and body. Listen to your inbox like a podcast while you drive.</p>
         </div>
         <div class="feature-card">
-            <div class="feature-icon">&#x1F3B5;</div>
-            <h3>Any Music Source</h3>
-            <p>Import your own MP3s, search Apple Music, or browse Spotify. B2Gaudio works with the music you already have and love.</p>
+            <div class="feature-icon">&#x1F697;</div>
+            <h3>CarPlay Support</h3>
+            <p>Seamless Apple CarPlay integration. Control playback, reply, skip, and mark as read — all from your car's built-in display.</p>
         </div>
         <div class="feature-card">
-            <div class="feature-icon">&#x1F465;</div>
-            <h3>Synchronized Listening</h3>
-            <p>One person hosts a session, others join and hear the same music at the same time. Like a silent disco with your friends.</p>
+            <div class="feature-icon">&#x1F3A4;</div>
+            <h3>Voice Replies</h3>
+            <p>Reply to emails with your voice. Dictate your response, hear it read back, and confirm before sending. No typing needed.</p>
         </div>
         <div class="feature-card">
-            <div class="feature-icon">&#x1F4CB;</div>
-            <h3>Create Mixtapes</h3>
-            <p>Build playlists from any source and share them with your group. Drag and drop to reorder, shuffle for variety.</p>
+            <div class="feature-icon">&#x2728;</div>
+            <h3>AI Summaries</h3>
+            <p>Get quick AI-powered summaries of long emails. Decide what needs your attention now and what can wait — all processed on-device.</p>
         </div>
         <div class="feature-card">
-            <div class="feature-icon">&#x1F500;</div>
-            <h3>Full Player Controls</h3>
-            <p>Play, pause, skip, rewind, shuffle, and reorder your queue. All the controls you expect from a modern music player.</p>
+            <div class="feature-icon">&#x1F9F9;</div>
+            <h3>Smart Reading</h3>
+            <p>Automatically skips signatures, legal disclaimers, tracking links, and boilerplate. You only hear what actually matters.</p>
         </div>
         <div class="feature-card">
             <div class="feature-icon">&#x1F512;</div>
-            <h3>Private &amp; Secure</h3>
-            <p>Your music stays on your network. No data sent to servers, no tracking, no accounts required. Just you and your friends.</p>
+            <h3>Privacy First</h3>
+            <p>All processing happens on your device. No backend servers, no data stored to disk. Your emails stay completely private.</p>
         </div>
     </div>
 </section>
@@ -459,51 +549,85 @@
             <div class="step">
                 <div class="step-num">1</div>
                 <div>
-                    <h3>Import or Connect Your Music</h3>
-                    <p>Add local audio files from your device, connect Apple Music, or link your Spotify account. All your music in one place.</p>
+                    <h3>Connect Your Email</h3>
+                    <p>Sign in with Gmail, Outlook, or iCloud. DriveMail Voice uses secure OAuth — we never see or store your password.</p>
                 </div>
             </div>
             <div class="step">
                 <div class="step-num">2</div>
                 <div>
-                    <h3>Host a Listening Session</h3>
-                    <p>Tap "Start Session" to create a room. Your phone becomes the host, broadcasting to anyone on the same WiFi network.</p>
+                    <h3>Start Listening</h3>
+                    <p>Tap play or connect to CarPlay. DriveMail Voice fetches your unread emails and starts reading them aloud, one by one.</p>
                 </div>
             </div>
             <div class="step">
                 <div class="step-num">3</div>
                 <div>
-                    <h3>Friends Join In</h3>
-                    <p>Nearby friends open B2Gaudio and see your session. One tap to join, and they're listening along in perfect sync.</p>
+                    <h3>Take Action</h3>
+                    <p>After each email, choose to reply by voice, mark as read, get an AI summary, or skip to the next one. All hands-free.</p>
                 </div>
             </div>
             <div class="step">
                 <div class="step-num">4</div>
                 <div>
-                    <h3>Enjoy Together</h3>
-                    <p>Build the queue together, share mixtapes, and enjoy the music. It's that simple.</p>
+                    <h3>Drive Safe</h3>
+                    <p>Stay on top of your inbox without ever touching your phone. Adjust speed, pause, replay — all with simple taps or voice commands.</p>
                 </div>
             </div>
         </div>
     </div>
 </section>
 
-<!-- Supported Services -->
-<section class="services" id="services">
-    <h2>Works With Your Music</h2>
-    <p>Connect the services you already use, or import your own files.</p>
-    <div class="service-logos">
-        <div class="service-item">
-            <div class="service-icon">&#x1F3B5;</div>
-            <span>Local Files</span>
+<!-- Supported Email Providers -->
+<section class="providers" id="providers">
+    <h2>Works With Your Email</h2>
+    <p>Connect the accounts you already use.</p>
+    <div class="provider-logos">
+        <div class="provider-item">
+            <div class="provider-icon">&#x1F4E7;</div>
+            <span>Gmail</span>
         </div>
-        <div class="service-item">
-            <div class="service-icon">&#xF8FF;</div>
-            <span>Apple Music</span>
+        <div class="provider-item">
+            <div class="provider-icon">&#x1F4AC;</div>
+            <span>Outlook</span>
         </div>
-        <div class="service-item">
-            <div class="service-icon">&#x1F3A7;</div>
-            <span>Spotify</span>
+        <div class="provider-item">
+            <div class="provider-icon">&#x2601;</div>
+            <span>iCloud</span>
+        </div>
+    </div>
+</section>
+
+<!-- Pricing -->
+<section class="pricing" id="pricing">
+    <h2>Simple Pricing</h2>
+    <p>DriveMail Voice is free to use. Remove ads with a one-time purchase.</p>
+    <div class="pricing-cards">
+        <div class="pricing-card">
+            <h3>Free</h3>
+            <div class="price">$0</div>
+            <div class="price-sub">forever</div>
+            <ul>
+                <li>All email reading features</li>
+                <li>CarPlay support</li>
+                <li>Voice replies</li>
+                <li>AI summaries</li>
+                <li>Multiple email accounts</li>
+                <li>Small banner ad on home screen</li>
+            </ul>
+        </div>
+        <div class="pricing-card featured">
+            <h3>Premium</h3>
+            <div class="price">$0.99</div>
+            <div class="price-sub">one-time purchase</div>
+            <ul>
+                <li>Everything in Free</li>
+                <li>No advertisements</li>
+                <li>Clean, distraction-free experience</li>
+                <li>Support indie development</li>
+                <li>All future updates included</li>
+                <li>Restore on any device</li>
+            </ul>
         </div>
     </div>
 </section>
@@ -512,17 +636,13 @@
 <footer>
     <div class="footer-inner">
         <div class="footer-links">
-            <a href="privacy.html">Privacy Policy</a>
-            <a href="terms.html">Terms of Service</a>
-            <a href="support.html">Support</a>
-            <a href="mailto:b2gaudio@gmail.com">Contact</a>
-        </div>
-        <div class="footer-links" style="margin-top: 8px;">
-            <span style="color: var(--text3); font-size: 0.85rem;">DriveMail Voice:</span>
-            <a href="drivemail.html">Home</a>
             <a href="drivemail-privacy.html">Privacy Policy</a>
             <a href="drivemail-terms.html">Terms of Service</a>
             <a href="drivemail-support.html">Support</a>
+            <a href="mailto:b2gaudio@gmail.com">Contact</a>
+        </div>
+        <div class="footer-links">
+            <a href="/" style="color: var(--text3);">B2Gaudio</a>
         </div>
         <p class="copyright">&copy; 2026 B2Gaudio. All rights reserved.</p>
     </div>

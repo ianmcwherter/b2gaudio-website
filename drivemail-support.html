@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Support — DriveMail Voice</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        :root {
+            --bg: #0A0A0F;
+            --surface: #151520;
+            --surface2: #1E1E2E;
+            --accent: #4A90D9;
+            --accent-dim: #3A7BC8;
+            --text: #F5F5F7;
+            --text2: #A1A1AA;
+            --text3: #71717A;
+            --border: #2A2A3A;
+        }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Segoe UI', Roboto, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.7;
+            -webkit-font-smoothing: antialiased;
+        }
+        nav {
+            position: fixed; top: 0; width: 100%; z-index: 100;
+            background: rgba(10, 10, 15, 0.85);
+            backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--border);
+        }
+        .nav-inner {
+            max-width: 1100px; margin: 0 auto; padding: 16px 24px;
+            display: flex; justify-content: space-between; align-items: center;
+        }
+        .logo {
+            display: flex; align-items: center; gap: 10px; text-decoration: none;
+        }
+        .logo img { width: 36px; height: 36px; border-radius: 8px; }
+        .logo-text { font-size: 1.3rem; font-weight: 700; color: var(--text); letter-spacing: -0.5px; }
+        .logo-text span { color: var(--accent); }
+        .nav-links { display: flex; gap: 28px; list-style: none; }
+        .nav-links a { color: var(--text2); text-decoration: none; font-size: 0.9rem; font-weight: 500; transition: color 0.2s; }
+        .nav-links a:hover { color: var(--text); }
+        .content { max-width: 760px; margin: 0 auto; padding: 120px 24px 80px; }
+        .app-badge {
+            display: inline-flex; align-items: center; gap: 10px;
+            background: var(--surface); border: 1px solid var(--border);
+            border-radius: 12px; padding: 8px 16px; margin-bottom: 24px;
+        }
+        .app-badge img { width: 28px; height: 28px; border-radius: 6px; }
+        .app-badge span { font-size: 0.95rem; font-weight: 600; color: var(--text2); }
+        h1 { font-size: 2.4rem; font-weight: 700; margin-bottom: 8px; letter-spacing: -0.5px; }
+        .subtitle { color: var(--text2); font-size: 1.1rem; margin-bottom: 48px; }
+        h2 { font-size: 1.3rem; font-weight: 600; margin-top: 40px; margin-bottom: 12px; color: var(--accent); }
+        p { color: var(--text2); margin-bottom: 16px; font-size: 0.95rem; }
+        a { color: var(--accent); }
+        .contact-card {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 32px;
+            text-align: center;
+            margin-bottom: 48px;
+        }
+        .contact-card h3 {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 12px;
+        }
+        .contact-card p {
+            color: var(--text2);
+            margin-bottom: 20px;
+        }
+        .email-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: var(--accent);
+            color: white;
+            padding: 12px 28px;
+            border-radius: 10px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1rem;
+            transition: transform 0.2s, background 0.2s;
+        }
+        .email-btn:hover {
+            transform: translateY(-2px);
+            background: var(--accent-dim);
+            color: white;
+        }
+        .faq-item {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 24px;
+            margin-bottom: 16px;
+        }
+        .faq-item h3 {
+            font-size: 1.05rem;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+        .faq-item p {
+            margin-bottom: 0;
+        }
+        footer {
+            padding: 40px 24px; border-top: 1px solid var(--border); text-align: center;
+        }
+        .footer-links {
+            display: flex; justify-content: center; gap: 32px; margin-bottom: 16px; flex-wrap: wrap;
+        }
+        .footer-links a { color: var(--text2); text-decoration: none; font-size: 0.9rem; }
+        .copyright { color: var(--text3); font-size: 0.85rem; }
+        @media (max-width: 480px) {
+            h1 { font-size: 1.8rem; }
+            .nav-links { display: none; }
+        }
+    </style>
+</head>
+<body>
+
+<nav>
+    <div class="nav-inner">
+        <a href="drivemail.html" class="logo">
+            <img src="drivemail-logo.png" alt="DriveMail Voice">
+            <span class="logo-text">Drive<span>Mail</span> Voice</span>
+        </a>
+        <ul class="nav-links">
+            <li><a href="drivemail.html">Home</a></li>
+            <li><a href="drivemail-privacy.html">Privacy</a></li>
+            <li><a href="drivemail-terms.html">Terms</a></li>
+            <li><a href="drivemail-support.html">Support</a></li>
+        </ul>
+    </div>
+</nav>
+
+<div class="content">
+    <div class="app-badge">
+        <img src="drivemail-logo.png" alt="DriveMail Voice">
+        <span>DriveMail Voice</span>
+    </div>
+
+    <h1>Support</h1>
+    <p class="subtitle">Need help with DriveMail Voice? We're here for you.</p>
+
+    <div class="contact-card">
+        <h3>Get in Touch</h3>
+        <p>Have a question, bug report, or feature request? Send us an email and we'll get back to you as soon as possible.</p>
+        <a href="mailto:b2gaudio@gmail.com" class="email-btn">
+            &#x2709; Email b2gaudio@gmail.com
+        </a>
+    </div>
+
+    <h2 style="margin-top: 0;">Frequently Asked Questions</h2>
+
+    <div class="faq-item">
+        <h3>How do I connect my email account?</h3>
+        <p>Open DriveMail Voice and tap "Add Account" on the home screen. Choose Gmail, Outlook, or iCloud and follow the sign-in prompts. For Gmail and Outlook, you'll sign in through their official login pages using OAuth. For iCloud, you'll need an app-specific password from your Apple ID settings.</p>
+    </div>
+
+    <div class="faq-item">
+        <h3>Does DriveMail Voice work with CarPlay?</h3>
+        <p>Yes! DriveMail Voice is fully compatible with Apple CarPlay. When you connect to CarPlay, the app automatically starts reading your unread emails. You can pause, skip, reply, and mark as read directly from your car's display.</p>
+    </div>
+
+    <div class="faq-item">
+        <h3>Is my email data stored on a server?</h3>
+        <p>No. DriveMail Voice processes everything on your device. Email content is held in memory only while you're actively using the app and is never written to disk or sent to any server. Your credentials are stored securely in the iOS Keychain.</p>
+    </div>
+
+    <div class="faq-item">
+        <h3>How do I reply to an email by voice?</h3>
+        <p>After an email is read aloud, say "Reply" or tap the Reply button. Dictate your response using your voice. The app will read back your message and ask you to confirm before sending. You can re-record if it didn't capture your words correctly.</p>
+    </div>
+
+    <div class="faq-item">
+        <h3>What is the AI Summary feature?</h3>
+        <p>AI Summary generates a short summary of long emails so you can quickly understand the key points. All summarization is done on-device — no email content is ever sent to external AI services.</p>
+    </div>
+
+    <div class="faq-item">
+        <h3>How do I remove ads?</h3>
+        <p>Tap the "Remove Ads" button on the Settings screen to make a one-time purchase of $0.99 through the App Store. This permanently removes the banner ad from the home screen. You can restore your purchase on any device using the "Restore Purchases" option.</p>
+    </div>
+
+    <div class="faq-item">
+        <h3>Why doesn't the app read certain parts of my email?</h3>
+        <p>DriveMail Voice intelligently skips signatures, legal disclaimers, confidentiality notices, tracking links, and other boilerplate content so you only hear the parts that matter. The full email is always visible on screen if you want to read it yourself.</p>
+    </div>
+
+    <div class="faq-item">
+        <h3>Can I adjust the reading speed?</h3>
+        <p>Yes! Use the Speed controls on the playback screen to switch between Slow, Normal, and Fast reading speeds. The change takes effect immediately, even mid-sentence.</p>
+    </div>
+
+    <div class="faq-item">
+        <h3>How do I disconnect an email account?</h3>
+        <p>Go to Settings in the app and tap the account you want to remove. You can also revoke access directly through your email provider's security settings (Google Account, Microsoft Account, or Apple ID).</p>
+    </div>
+
+    <div class="faq-item">
+        <h3>The app isn't reading my emails. What should I do?</h3>
+        <p>Make sure you have an active internet connection and that your email account is properly connected. Try removing and re-adding the account. If the issue persists, please contact us at b2gaudio@gmail.com with details about your device and email provider.</p>
+    </div>
+</div>
+
+<footer>
+    <div class="footer-links">
+        <a href="drivemail.html">Home</a>
+        <a href="drivemail-privacy.html">Privacy Policy</a>
+        <a href="drivemail-terms.html">Terms of Service</a>
+        <a href="mailto:b2gaudio@gmail.com">Contact</a>
+    </div>
+    <div class="footer-links">
+        <a href="/" style="color: var(--text3);">B2Gaudio</a>
+    </div>
+    <p class="copyright">&copy; 2026 B2Gaudio. All rights reserved.</p>
+</footer>
+
+</body>
+</html>
