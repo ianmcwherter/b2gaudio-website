@@ -91,22 +91,24 @@
     </div>
 
     <h1>Privacy Policy</h1>
-    <p class="last-updated">Last updated: March 15, 2026</p>
+    <p class="last-updated">Last updated: May 2, 2026</p>
 
     <p>DriveMail Voice ("we," "our," or "the App") is committed to protecting your privacy. This Privacy Policy explains how we collect, use, and safeguard your information when you use the DriveMail Voice mobile application for iOS and CarPlay.</p>
 
     <h2>1. Information We Collect</h2>
     <p>DriveMail Voice accesses the following data to provide its core functionality:</p>
     <ul>
-        <li><strong>Email content:</strong> The App fetches unread email messages (sender, subject, body) from your connected email accounts to read them aloud. Email content is held in memory only during active use and is never written to disk or stored persistently.</li>
+        <li><strong>Email content:</strong> The App fetches unread email messages (sender, subject, body) from your connected email accounts to read them aloud and to display them on the iPhone home screen and in the home screen widget. See Section 7 for details on how this content is stored on your device.</li>
         <li><strong>OAuth tokens:</strong> If you connect Gmail or Outlook, authentication tokens are stored securely in your device's Keychain. We never see or store your email passwords.</li>
         <li><strong>IMAP credentials:</strong> If you connect an iCloud or other IMAP email account, your app-specific password is stored securely in the device Keychain and is never transmitted to any external server.</li>
         <li><strong>Voice input:</strong> When using voice commands or dictating replies, audio is processed on-device using Apple's Speech Recognition framework. Audio data is not stored or transmitted to our servers.</li>
+        <li><strong>Contacts:</strong> With your permission, the App reads your iOS Contacts to pronounce sender names correctly, filter emails to people you mark as VIPs, and look up recipients by name when you forward a message. Contact data is read on-device only and is never transmitted off the device.</li>
+        <li><strong>Focus status:</strong> With your permission, the App reads your current iOS Focus status (for example, "Driving" or "Do Not Disturb") so it can automatically skip non-VIP emails while you're focused. Focus status is read on-device only and is never transmitted off the device.</li>
     </ul>
 
     <h2>2. Information We Do NOT Collect</h2>
     <ul>
-        <li>We do not store email content on disk or on any server.</li>
+        <li>We do not store email content on any server, and we do not transmit it to any party other than your chosen email provider (Gmail, Outlook, or your IMAP host).</li>
         <li>We do not track your location.</li>
         <li>We do not collect usage analytics or behavioral data.</li>
         <li>We do not sell, rent, or share any data with third parties (other than as described in the Third-Party Services section below).</li>
@@ -137,7 +139,9 @@
     </ul>
 
     <h2>7. Data Storage and Security</h2>
-    <p>All sensitive credentials (OAuth tokens, IMAP passwords) are stored in the iOS Keychain, Apple's secure encrypted storage. Email content is held in memory only and is cleared when you leave the playback session or when the app enters the background. We do not operate any servers or cloud storage. HTTPS is enforced for all network requests.</p>
+    <p>All sensitive credentials (OAuth tokens, IMAP passwords) are stored in the iOS Keychain, Apple's secure encrypted storage. We do not operate any servers or cloud storage. HTTPS is enforced for all network requests.</p>
+    <p><strong>On-device email cache.</strong> To make the app fast and to power the home screen widget, DriveMail Voice maintains an on-device cache of unread email metadata and bodies. This cache is written to local storage protected with Apple's <code>NSFileProtectionCompleteUntilFirstUserAuthentication</code> data-protection class — the same protection class used by Apple Mail and the official Gmail iOS app. The cache is encrypted at rest with a key tied to your device passcode and is readable only after the device has been unlocked at least once since boot. The cache never leaves your device, is never transmitted to us or to any third party, and is automatically cleared when you remove an account, sign out, tap "Clear cache" in Settings, or uninstall the App.</p>
+    <p><strong>App Group sharing for the home screen widget.</strong> DriveMail Voice includes an iOS home screen widget that shows your latest unread email count and previews. To make this work, a small subset of cached email metadata is shared between the main app and the widget extension through a private iOS App Group container. This shared container is sandboxed to DriveMail Voice and its widget extension only — no other app on your device or any external service can read it. The same data-protection class described above applies.</p>
 
     <h2>8. CarPlay</h2>
     <p>When used with CarPlay, DriveMail Voice operates in a voice-only mode with minimal visual elements. No advertisements are displayed in CarPlay. The same privacy protections apply in CarPlay as on iPhone.</p>
