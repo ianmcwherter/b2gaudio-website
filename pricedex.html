@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pricedex — Pokémon Card Scanner, Collection Tracker &amp; Deck Builder for Kids</title>
+    <meta name="description" content="Scan a Pokémon card, see its set, rarity and value, keep a digital collection, and build decks from the cards you actually own. Made for kids. No ads, no accounts, no tracking.">
+    <meta property="og:title" content="Pricedex — Pokémon card scanner and deck builder for kids">
+    <meta property="og:description" content="Scan a card, track your collection, build decks from cards you own. No ads, no accounts, no tracking.">
+    <meta property="og:type" content="website">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        :root {
+            --bg: #0A0A0F;
+            --surface: #151520;
+            --surface2: #1D1D2B;
+            --accent: #FFC629;
+            --accent2: #2E9BFF;
+            --text: #F5F5F7;
+            --text2: #A1A1AA;
+            --text3: #71717A;
+            --border: #2A2A3A;
+        }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Segoe UI', Roboto, sans-serif;
+            background: var(--bg); color: var(--text); line-height: 1.7;
+            -webkit-font-smoothing: antialiased;
+        }
+        nav {
+            position: fixed; top: 0; width: 100%; z-index: 100;
+            background: rgba(10, 10, 15, 0.85);
+            backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--border);
+        }
+        .nav-inner {
+            max-width: 1100px; margin: 0 auto; padding: 16px 24px;
+            display: flex; justify-content: space-between; align-items: center;
+        }
+        .logo { font-size: 1.4rem; font-weight: 700; color: var(--text); text-decoration: none; letter-spacing: -0.5px; }
+        .logo span { color: var(--accent); }
+        .nav-links { display: flex; gap: 32px; list-style: none; }
+        .nav-links a { color: var(--text2); text-decoration: none; font-size: 0.9rem; font-weight: 500; transition: color 0.2s; }
+        .nav-links a:hover { color: var(--text); }
+
+        .hero { padding: 160px 24px 80px; text-align: center; }
+        .hero-icon {
+            width: 96px; height: 96px; margin: 0 auto 28px;
+            background: linear-gradient(145deg, #FFF1B8 0%, #FFC629 45%, #8A5D0B 100%);
+            border-radius: 22px; display: flex; align-items: center; justify-content: center;
+            box-shadow: 0 18px 48px rgba(255, 198, 41, 0.28);
+        }
+        .hero-icon svg { width: 54px; height: 54px; }
+        h1 { font-size: 3.2rem; font-weight: 700; letter-spacing: -1.5px; margin-bottom: 12px; }
+        .tagline {
+            font-size: 1.25rem; color: var(--accent); font-weight: 600; margin-bottom: 20px;
+        }
+        .hero p {
+            max-width: 620px; margin: 0 auto 32px; color: var(--text2); font-size: 1.05rem;
+        }
+        .app-store-btn {
+            display: inline-flex; align-items: center; gap: 10px;
+            background: var(--text); color: #000; padding: 14px 28px;
+            border-radius: 12px; text-decoration: none; font-weight: 600; font-size: 1rem;
+            transition: transform 0.2s;
+        }
+        .app-store-btn:hover { transform: translateY(-2px); }
+        .app-store-btn svg { width: 22px; height: 22px; fill: #000; }
+        .price-note { color: var(--text3); font-size: 0.9rem; margin-top: 14px; }
+
+        section { padding: 72px 24px; }
+        .wrap { max-width: 1100px; margin: 0 auto; }
+        h2.section-title {
+            font-size: 2rem; font-weight: 700; text-align: center;
+            margin-bottom: 12px; letter-spacing: -0.5px;
+        }
+        .section-sub { text-align: center; color: var(--text2); max-width: 620px; margin: 0 auto 48px; }
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
+        .card {
+            background: var(--surface); border: 1px solid var(--border);
+            border-radius: 16px; padding: 28px;
+        }
+        .card .icon { font-size: 1.9rem; margin-bottom: 12px; }
+        .card h3 { font-size: 1.1rem; font-weight: 600; margin-bottom: 8px; }
+        .card p { color: var(--text2); font-size: 0.93rem; }
+
+        .steps { counter-reset: step; max-width: 760px; margin: 0 auto; }
+        .step {
+            display: flex; gap: 20px; align-items: flex-start;
+            padding: 22px 0; border-bottom: 1px solid var(--border);
+        }
+        .step:last-child { border-bottom: none; }
+        .step-num {
+            flex-shrink: 0; width: 38px; height: 38px; border-radius: 10px;
+            background: linear-gradient(145deg, #FFF1B8, #FFC629 45%, #8A5D0B);
+            color: #1A1406; display: flex; align-items: center; justify-content: center;
+            font-weight: 800; font-size: 1rem;
+        }
+        .step h3 { font-size: 1.05rem; font-weight: 600; margin-bottom: 4px; }
+        .step p { color: var(--text2); font-size: 0.93rem; margin: 0; }
+
+        .privacy-band { background: var(--surface); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+        .privacy-list { max-width: 720px; margin: 0 auto; display: grid; gap: 14px; }
+        .privacy-item { display: flex; gap: 12px; align-items: flex-start; color: var(--text2); font-size: 0.97rem; }
+        .check { color: var(--accent); font-weight: 800; flex-shrink: 0; }
+
+        .disclaimer {
+            max-width: 760px; margin: 0 auto; background: var(--surface2);
+            border: 1px solid var(--border); border-left: 3px solid var(--accent2);
+            border-radius: 10px; padding: 22px 26px;
+        }
+        .disclaimer p { color: var(--text2); font-size: 0.9rem; margin-bottom: 10px; }
+        .disclaimer p:last-child { margin-bottom: 0; }
+
+        footer { padding: 40px 24px; border-top: 1px solid var(--border); text-align: center; }
+        .footer-links { display: flex; justify-content: center; gap: 32px; margin-bottom: 16px; flex-wrap: wrap; }
+        .footer-links a { color: var(--text2); text-decoration: none; font-size: 0.9rem; }
+        .copyright { color: var(--text3); font-size: 0.85rem; }
+        a { color: var(--accent); }
+        @media (max-width: 640px) {
+            h1 { font-size: 2.2rem; }
+            .nav-links { display: none; }
+            .hero { padding-top: 120px; }
+        }
+    </style>
+</head>
+<body>
+
+<nav>
+    <div class="nav-inner">
+        <a href="/" class="logo">B2G<span>audio</span></a>
+        <ul class="nav-links">
+            <li><a href="#features">Features</a></li>
+            <li><a href="#how">How It Works</a></li>
+            <li><a href="pricedex-support.html">Support</a></li>
+            <li><a href="pricedex-privacy.html">Privacy</a></li>
+            <li><a href="/">B2Gaudio</a></li>
+        </ul>
+    </div>
+</nav>
+
+<section class="hero">
+    <div class="hero-icon">
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect x="5" y="2.5" width="14" height="19" rx="2.5" stroke="#1A1406" stroke-width="1.8" fill="none"/>
+            <path d="M9.5 17V7.5h3a2.75 2.75 0 0 1 0 5.5h-3" stroke="#1A1406" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+    </div>
+    <h1>Pricedex</h1>
+    <div class="tagline">Scan it. Collect it. Build with it.</div>
+    <p>Point your camera at a Pokémon card and Pricedex tells you what it is, how rare it is, and roughly what it's worth. Keep a digital collection, then build real decks from the cards you actually own. Made for kids — no ads, no accounts, nothing leaves the device.</p>
+    <a href="#" class="app-store-btn">
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/>
+        </svg>
+        Coming to the App Store
+    </a>
+    <p class="price-note">One-time purchase. No subscriptions, no in-app purchases, no ads.</p>
+</section>
+
+<section id="features">
+    <div class="wrap">
+        <h2 class="section-title">Built for how kids actually play</h2>
+        <p class="section-sub">Big buttons, read-aloud, and a deck builder that only ever uses cards they really own.</p>
+        <div class="grid">
+            <div class="card">
+                <div class="icon">&#x1F4F8;</div>
+                <h3>Scan any card</h3>
+                <p>Point the camera at the collector number and Pricedex identifies the card instantly. Recognition runs on the device — no photo is ever saved or uploaded.</p>
+            </div>
+            <div class="card">
+                <div class="icon">&#x2B50;</div>
+                <h3>See how rare it is</h3>
+                <p>Plain-language rarity with approximate pull odds — "about 1 in 9 packs" — so a seven-year-old understands why a card is special. Rare pulls get a celebration.</p>
+            </div>
+            <div class="card">
+                <div class="icon">&#x1F4B0;</div>
+                <h3>Rough value</h3>
+                <p>Ungraded market price plus typical PSA 10 and CGC 10 listing prices, clearly labelled as estimates — never presented as an appraisal.</p>
+            </div>
+            <div class="card">
+                <div class="icon">&#x1F5C2;</div>
+                <h3>Digital collection</h3>
+                <p>Track every card and how many copies. Filter by type, set or rarity, and see what the whole collection is roughly worth.</p>
+            </div>
+            <div class="card">
+                <div class="icon">&#x1F6E0;</div>
+                <h3>Real deck building</h3>
+                <p>Pick one or two types and Pricedex assembles the best legal deck it can from cards you own — complete evolution lines, trainers, energy — and rates it out of five stars.</p>
+            </div>
+            <div class="card">
+                <div class="icon">&#x1F5E3;</div>
+                <h3>Reads aloud</h3>
+                <p>Tap the speaker and Pricedex reads card details and coaching tips out loud, so kids who can't read yet can still use it on their own.</p>
+            </div>
+            <div class="card">
+                <div class="icon">&#x1F9D2;</div>
+                <h3>A profile per kid</h3>
+                <p>Two children, one iPad, two completely separate collections and deck lists. Neither can change the other's cards.</p>
+            </div>
+            <div class="card">
+                <div class="icon">&#x1F512;</div>
+                <h3>Safe by design</h3>
+                <p>No accounts, no chat, no ads, no tracking. The single link out of the app sits behind a parental gate.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="how" style="background: var(--surface);">
+    <div class="wrap">
+        <h2 class="section-title">How it works</h2>
+        <p class="section-sub">From a shoebox of cards to a deck worth playing.</p>
+        <div class="steps">
+            <div class="step">
+                <div class="step-num">1</div>
+                <div>
+                    <h3>Make a player</h3>
+                    <p>Each kid picks a name, a picture and a colour. Everything they collect stays under their own profile.</p>
+                </div>
+            </div>
+            <div class="step">
+                <div class="step-num">2</div>
+                <div>
+                    <h3>Scan a card</h3>
+                    <p>Point at the number in the corner — like 4/102. Pricedex finds the card, shows the artwork, the set, the rarity and the price. Tap to add it to the collection.</p>
+                </div>
+            </div>
+            <div class="step">
+                <div class="step-num">3</div>
+                <div>
+                    <h3>Build a deck</h3>
+                    <p>Choose one or two types. Pricedex builds the strongest legal deck it can from the cards that kid owns, keeping evolution lines together and matching energy to attack costs.</p>
+                </div>
+            </div>
+            <div class="step">
+                <div class="step-num">4</div>
+                <div>
+                    <h3>Learn what's missing</h3>
+                    <p>Every deck comes with a star rating, kid-friendly coaching, and a "Make It Better" list — the exact cards that would improve it. Read aloud on request.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="privacy-band">
+    <div class="wrap">
+        <h2 class="section-title">A kids' app that collects nothing</h2>
+        <p class="section-sub">Not "we protect your data" — there simply is no data. Everything stays on the device.</p>
+        <div class="privacy-list">
+            <div class="privacy-item"><span class="check">&check;</span><span>No accounts, no sign-in, no email address, no password.</span></div>
+            <div class="privacy-item"><span class="check">&check;</span><span>No analytics, no crash trackers, no advertising SDKs, no IDFA.</span></div>
+            <div class="privacy-item"><span class="check">&check;</span><span>Card photos never leave the phone — text recognition runs entirely on-device.</span></div>
+            <div class="privacy-item"><span class="check">&check;</span><span>No chat, no messaging, no social features, no user-generated content.</span></div>
+            <div class="privacy-item"><span class="check">&check;</span><span>No location, contacts, microphone, or photo library access.</span></div>
+            <div class="privacy-item"><span class="check">&check;</span><span>The one link out of the app is behind a parental gate.</span></div>
+        </div>
+        <p style="text-align:center; margin-top:28px;"><a href="pricedex-privacy.html">Read the full Privacy Policy →</a></p>
+    </div>
+</section>
+
+<section>
+    <div class="disclaimer">
+        <p><strong>About prices.</strong> Pricedex shows rough estimates gathered from public market data and current listings. Graded figures reflect what sellers are <em>asking</em>, not what cards have sold for, and nothing accounts for condition, centring or authenticity. Pricedex does not provide appraisals or financial advice — please don't use it to decide what to pay for, sell, or insure a card.</p>
+        <p><strong>Unofficial fan tool.</strong> Pricedex is not affiliated with, endorsed by, or approved by Nintendo, Creatures Inc., GAME FREAK inc., The Pokémon Company International, or Wizards of the Coast. Pokémon and all related names and artwork are trademarks and copyrighted works of their respective owners.</p>
+    </div>
+</section>
+
+<footer>
+    <div class="footer-links">
+        <a href="pricedex.html">Pricedex Home</a>
+        <a href="pricedex-privacy.html">Privacy Policy</a>
+        <a href="pricedex-terms.html">Terms of Service</a>
+        <a href="pricedex-support.html">Support</a>
+        <a href="mailto:b2gaudio@gmail.com">Contact</a>
+    </div>
+    <div class="footer-links">
+        <a href="/" style="color: var(--text3);">B2Gaudio</a>
+        <a href="drivemail.html" style="color: var(--text3);">DriveMail Voice</a>
+    </div>
+    <p class="copyright">&copy; 2026 B2Gaudio. All rights reserved.</p>
+</footer>
+
+</body>
+</html>

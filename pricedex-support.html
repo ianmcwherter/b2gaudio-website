@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Support — Pricedex</title>
+    <meta name="description" content="Help and frequently asked questions for Pricedex, the Pokémon card scanner, collection tracker and deck builder for kids.">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        :root {
+            --bg: #0A0A0F;
+            --surface: #151520;
+            --accent: #FFC629;
+            --text: #F5F5F7;
+            --text2: #A1A1AA;
+            --text3: #71717A;
+            --border: #2A2A3A;
+        }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Segoe UI', Roboto, sans-serif;
+            background: var(--bg); color: var(--text); line-height: 1.7;
+            -webkit-font-smoothing: antialiased;
+        }
+        nav {
+            position: fixed; top: 0; width: 100%; z-index: 100;
+            background: rgba(10, 10, 15, 0.85);
+            backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--border);
+        }
+        .nav-inner {
+            max-width: 1100px; margin: 0 auto; padding: 16px 24px;
+            display: flex; justify-content: space-between; align-items: center;
+        }
+        .logo { font-size: 1.4rem; font-weight: 700; color: var(--text); text-decoration: none; letter-spacing: -0.5px; }
+        .logo span { color: var(--accent); }
+        .nav-links { display: flex; gap: 32px; list-style: none; }
+        .nav-links a { color: var(--text2); text-decoration: none; font-size: 0.9rem; font-weight: 500; transition: color 0.2s; }
+        .nav-links a:hover { color: var(--text); }
+        .content { max-width: 760px; margin: 0 auto; padding: 120px 24px 80px; }
+        .app-badge {
+            display: inline-flex; align-items: center; gap: 10px;
+            background: var(--surface); border: 1px solid var(--border);
+            border-radius: 12px; padding: 8px 16px; margin-bottom: 24px;
+        }
+        .app-badge svg { width: 28px; height: 28px; }
+        .app-badge span { font-size: 0.95rem; font-weight: 600; color: var(--text2); }
+        h1 { font-size: 2.4rem; font-weight: 700; margin-bottom: 8px; letter-spacing: -0.5px; }
+        .subtitle { color: var(--text3); font-size: 0.95rem; margin-bottom: 40px; }
+        h2 { font-size: 1.3rem; font-weight: 600; margin-top: 40px; margin-bottom: 12px; color: var(--accent); }
+        h3 { font-size: 1.05rem; font-weight: 600; margin-top: 24px; margin-bottom: 6px; color: var(--text); }
+        p { color: var(--text2); margin-bottom: 16px; font-size: 0.95rem; }
+        ul, ol { color: var(--text2); margin-bottom: 16px; padding-left: 24px; font-size: 0.95rem; }
+        li { margin-bottom: 8px; }
+        a { color: var(--accent); }
+        .contact-box {
+            background: var(--surface); border: 1px solid var(--border);
+            border-radius: 12px; padding: 28px; margin: 32px 0; text-align: center;
+        }
+        .contact-box a { font-size: 1.1rem; font-weight: 600; }
+        footer { padding: 40px 24px; border-top: 1px solid var(--border); text-align: center; }
+        .footer-links { display: flex; justify-content: center; gap: 32px; margin-bottom: 16px; flex-wrap: wrap; }
+        .footer-links a { color: var(--text2); text-decoration: none; font-size: 0.9rem; }
+        .copyright { color: var(--text3); font-size: 0.85rem; }
+        @media (max-width: 480px) {
+            h1 { font-size: 1.8rem; }
+            .nav-links { display: none; }
+        }
+    </style>
+</head>
+<body>
+
+<nav>
+    <div class="nav-inner">
+        <a href="/" class="logo">B2G<span>audio</span></a>
+        <ul class="nav-links">
+            <li><a href="pricedex.html">Pricedex Home</a></li>
+            <li><a href="pricedex-privacy.html">Privacy</a></li>
+            <li><a href="pricedex-terms.html">Terms</a></li>
+            <li><a href="/">B2Gaudio</a></li>
+        </ul>
+    </div>
+</nav>
+
+<div class="content">
+    <div class="app-badge">
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect x="5" y="2.5" width="14" height="19" rx="2.5" stroke="#FFC629" stroke-width="1.5" fill="none"/>
+            <path d="M9.5 17V7.5h3a2.75 2.75 0 0 1 0 5.5h-3" stroke="#FFC629" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        <span>Pricedex</span>
+    </div>
+
+    <h1>Support</h1>
+    <p class="subtitle">Help with scanning, collections, decks and profiles.</p>
+
+    <div class="contact-box">
+        <p>Need help, found a bug, or have an idea? Email us — a real person reads every message.</p>
+        <a href="mailto:b2gaudio@gmail.com">b2gaudio@gmail.com</a>
+    </div>
+
+    <h2>Scanning cards</h2>
+
+    <h3>How do I scan a card?</h3>
+    <p>Tap <strong>Scan a Card</strong> and point the camera at the small collector number printed near the bottom corner of the card — it looks like <strong>4/102</strong>. Hold steady in good light. Pricedex reads that number and finds the matching card.</p>
+
+    <h3>It scanned the wrong card</h3>
+    <p>Tap <strong>"Not this card? Go back &amp; scan again"</strong> at the bottom of the card screen, or <strong>Scan Again</strong> in the banner. Many cards share a number across different sets, so if the wrong one appears, try searching by name instead and pick the correct set from the results.</p>
+
+    <h3>It won't recognise my card</h3>
+    <ul>
+        <li>Make sure the collector number is in frame, right-side up, and in focus.</li>
+        <li>Reduce glare — foil and holo cards reflect light and confuse text recognition. Tilt the card slightly.</li>
+        <li>Very old cards, promos, and cards with letter-based numbers (like TG12/TG30) may not have a readable number. Use search by name instead.</li>
+        <li>Scanning needs a real iPhone or iPad camera; it does not work in the iOS Simulator.</li>
+    </ul>
+
+    <h3>Why does it need camera permission?</h3>
+    <p>Only to read the number on the card. Text recognition happens entirely on your device, no photo is ever saved, and nothing from your camera is ever uploaded. See the <a href="pricedex-privacy.html">Privacy Policy</a>.</p>
+
+    <h2>Players and profiles</h2>
+
+    <h3>Can two kids share one device?</h3>
+    <p>Yes — that is exactly what profiles are for. Each player gets their own separate collection and their own decks. Tap the name badge at the top of any screen to switch players, or to add a new one.</p>
+
+    <h3>Can one player see or change another's cards?</h3>
+    <p>No. Each player's collection is completely separate. Switching players changes everything you see — library, decks and totals.</p>
+
+    <h3>I deleted a player by mistake</h3>
+    <p>Deleting a player also deletes their cards and decks, and this cannot be undone. That is why the App asks you to confirm and tells you how many cards will be removed. Unfortunately we cannot recover them, because nothing is stored outside your device.</p>
+
+    <h2>Your collection</h2>
+
+    <h3>How do I add a card I own?</h3>
+    <p>Scan or search for it, then tap <strong>Add to My Library</strong>. Tapping again adds another copy.</p>
+
+    <h3>How do I change how many copies I have?</h3>
+    <p>Open the <strong>Library</strong> tab and tap the card. Use the big <strong>+</strong> and <strong>−</strong> buttons to change the count.</p>
+
+    <h3>How do I remove a card?</h3>
+    <p>Tap the card in your Library, then <strong>Remove from library</strong> and confirm.</p>
+
+    <h3>Can I filter my collection?</h3>
+    <p>Yes. In the Library tab, use the chips to show only Pokémon, Trainers, Energy, or a single type, and the Set and Rarity menus for more. Tap <strong>Clear</strong> to see everything again.</p>
+
+    <h2>Decks</h2>
+
+    <h3>How does deck building work?</h3>
+    <p>Go to the <strong>Decks</strong> tab, pick one or two types, then tap Build. Pricedex assembles the best deck it can <em>using only cards you actually own</em>, gives it a star rating, and suggests what would improve it.</p>
+
+    <h3>Why is my deck fewer than 60 cards?</h3>
+    <p>Because you do not own enough cards yet. Pricedex will never invent a card you do not have. The "Make It Better" list tells you exactly what to look for.</p>
+
+    <h3>Are these decks tournament legal?</h3>
+    <p>Treat them as a learning aid, not a rules authority. Pricedex follows common deck-building conventions but does not track official format rotations. Always check current official rules before organised play.</p>
+
+    <h2>Prices</h2>
+
+    <h3>How accurate are the prices?</h3>
+    <p>They are rough estimates only. Ungraded prices come from a market data feed for that printing. Graded (PSA 10 / CGC 10) figures reflect what sellers are currently <em>asking</em> in public listings, which is usually well above what cards actually sell for. Prices ignore condition, centring and authenticity.</p>
+    <p><strong>Never use Pricedex to decide what to pay for, sell, or insure a card.</strong> See Section 10 of the <a href="pricedex-terms.html">Terms of Service</a>.</p>
+
+    <h3>Why do some cards show no graded price?</h3>
+    <p>Either no clean matching listings were found, or graded pricing has not been enabled in your version of the App. The ungraded price still works.</p>
+
+    <h2>Reading aloud</h2>
+
+    <h3>My child can't read yet — can the app read to them?</h3>
+    <p>Yes. Tap the speaker button next to a card's rarity or next to the deck Coach Tips and Pricedex will read it aloud. Tap again to stop. This uses your device's built-in voice; the App never listens or records.</p>
+
+    <h2>Privacy and safety</h2>
+
+    <h3>Does Pricedex collect data about my child?</h3>
+    <p>No. There are no accounts, no sign-in, no analytics, no ads and no tracking. Nothing is transmitted to us. There is no chat, no messaging and no way for anyone to contact your child through the App. Full details in the <a href="pricedex-privacy.html">Privacy Policy</a>.</p>
+
+    <h3>Can my child accidentally leave the app or buy something?</h3>
+    <p>The only outbound link is to a card marketplace, and it sits behind a parental gate — a maths question a young child is not expected to answer. There are no in-app purchases and no subscriptions.</p>
+
+    <h2>Purchase and refunds</h2>
+
+    <h3>Is there a subscription?</h3>
+    <p>No. Pricedex is a single one-time purchase with no subscriptions and no in-app purchases.</p>
+
+    <h3>How do I get a refund?</h3>
+    <p>Refunds are handled entirely by Apple. Visit <a href="https://reportaproblem.apple.com" target="_blank" rel="noopener">reportaproblem.apple.com</a> and sign in with the Apple Account used for the purchase.</p>
+
+    <h3>How do I restore it on another device?</h3>
+    <p>Sign in to the same Apple Account and re-download Pricedex from the App Store — there is no extra charge. Note that your collection does not transfer between devices, because it is stored only on the device where you built it.</p>
+
+    <h2>Still stuck?</h2>
+    <p>Email <a href="mailto:b2gaudio@gmail.com">b2gaudio@gmail.com</a> with your device model, iOS version, and a description of what happened. Screenshots help a lot.</p>
+</div>
+
+<footer>
+    <div class="footer-links">
+        <a href="pricedex.html">Pricedex Home</a>
+        <a href="pricedex-privacy.html">Privacy Policy</a>
+        <a href="pricedex-terms.html">Terms of Service</a>
+        <a href="pricedex-support.html">Support</a>
+        <a href="mailto:b2gaudio@gmail.com">Contact</a>
+    </div>
+    <div class="footer-links">
+        <a href="/" style="color: var(--text3);">B2Gaudio</a>
+    </div>
+    <p class="copyright">&copy; 2026 B2Gaudio. All rights reserved.</p>
+</footer>
+
+</body>
+</html>
