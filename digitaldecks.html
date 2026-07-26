@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pricedex — Pokémon Card Scanner, Collection Tracker &amp; Deck Builder for Kids</title>
+    <title>Digital Decks — Pokémon Card Scanner, Collection Tracker &amp; Deck Builder for Kids</title>
     <meta name="description" content="Scan a Pokémon card, see its set, rarity and value, keep a digital collection, and build decks from the cards you actually own. Made for kids. No ads, no accounts, no tracking.">
-    <meta property="og:title" content="Pricedex — Pokémon card scanner and deck builder for kids">
+    <meta property="og:title" content="Digital Decks — Pokémon card scanner and deck builder for kids">
     <meta property="og:description" content="Scan a card, track your collection, build decks from cards you own. No ads, no accounts, no tracking.">
     <meta property="og:type" content="website">
     <style>
@@ -14,8 +14,8 @@
             --bg: #0A0A0F;
             --surface: #151520;
             --surface2: #1D1D2B;
-            --accent: #FFC629;
-            --accent2: #2E9BFF;
+            --accent: #2FA8FF;
+            --accent2: #FF3A3A;
             --text: #F5F5F7;
             --text2: #A1A1AA;
             --text3: #71717A;
@@ -45,9 +45,9 @@
         .hero { padding: 160px 24px 80px; text-align: center; }
         .hero-icon {
             width: 96px; height: 96px; margin: 0 auto 28px;
-            background: linear-gradient(145deg, #FFF1B8 0%, #FFC629 45%, #8A5D0B 100%);
+            background: linear-gradient(145deg, #FFF1B8 0%, #2FA8FF 45%, #8A5D0B 100%);
             border-radius: 22px; display: flex; align-items: center; justify-content: center;
-            box-shadow: 0 18px 48px rgba(255, 198, 41, 0.28);
+            box-shadow: 0 18px 48px rgba(47, 168, 255, 0.28);
         }
         .hero-icon svg { width: 54px; height: 54px; }
         h1 { font-size: 3.2rem; font-weight: 700; letter-spacing: -1.5px; margin-bottom: 12px; }
@@ -91,8 +91,8 @@
         .step:last-child { border-bottom: none; }
         .step-num {
             flex-shrink: 0; width: 38px; height: 38px; border-radius: 10px;
-            background: linear-gradient(145deg, #FFF1B8, #FFC629 45%, #8A5D0B);
-            color: #1A1406; display: flex; align-items: center; justify-content: center;
+            background: linear-gradient(145deg, #FFF1B8, #2FA8FF 45%, #8A5D0B);
+            color: #04182E; display: flex; align-items: center; justify-content: center;
             font-weight: 800; font-size: 1rem;
         }
         .step h3 { font-size: 1.05rem; font-weight: 600; margin-bottom: 4px; }
@@ -131,8 +131,8 @@
         <ul class="nav-links">
             <li><a href="#features">Features</a></li>
             <li><a href="#how">How It Works</a></li>
-            <li><a href="pricedex-support.html">Support</a></li>
-            <li><a href="pricedex-privacy.html">Privacy</a></li>
+            <li><a href="digitaldecks-support.html">Support</a></li>
+            <li><a href="digitaldecks-privacy.html">Privacy</a></li>
             <li><a href="/">B2Gaudio</a></li>
         </ul>
     </div>
@@ -141,13 +141,13 @@
 <section class="hero">
     <div class="hero-icon">
         <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <rect x="5" y="2.5" width="14" height="19" rx="2.5" stroke="#1A1406" stroke-width="1.8" fill="none"/>
-            <path d="M9.5 17V7.5h3a2.75 2.75 0 0 1 0 5.5h-3" stroke="#1A1406" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+            <rect x="5" y="2.5" width="14" height="19" rx="2.5" stroke="#04182E" stroke-width="1.8" fill="none"/>
+            <path d="M9 17.5V6.5h3a5.5 5.5 0 0 1 0 11H9z" stroke="#04182E" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
         </svg>
     </div>
-    <h1>Pricedex</h1>
-    <div class="tagline">Scan it. Collect it. Build with it.</div>
-    <p>Point your camera at a Pokémon card and Pricedex tells you what it is, how rare it is, and roughly what it's worth. Keep a digital collection, then build real decks from the cards you actually own. Made for kids — no ads, no accounts, nothing leaves the device.</p>
+    <h1>Digital Decks</h1>
+    <div class="tagline">Scan it. Collect it. Build a real deck.</div>
+    <p>Point your camera at a Pokémon card and Digital Decks tells you what it is, how rare it is, and roughly what it's worth. Keep a digital collection, then build real decks from the cards you actually own. Made for kids — no ads, no accounts, nothing leaves the device.</p>
     <a href="#" class="app-store-btn">
         <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
             <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/>
@@ -165,7 +165,7 @@
             <div class="card">
                 <div class="icon">&#x1F4F8;</div>
                 <h3>Scan any card</h3>
-                <p>Point the camera at the collector number and Pricedex identifies the card instantly. Recognition runs on the device — no photo is ever saved or uploaded.</p>
+                <p>Point the camera at the collector number and Digital Decks identifies the card instantly. Recognition runs on the device — no photo is ever saved or uploaded.</p>
             </div>
             <div class="card">
                 <div class="icon">&#x2B50;</div>
@@ -185,12 +185,12 @@
             <div class="card">
                 <div class="icon">&#x1F6E0;</div>
                 <h3>Real deck building</h3>
-                <p>Pick one or two types and Pricedex assembles the best legal deck it can from cards you own — complete evolution lines, trainers, energy — and rates it out of five stars.</p>
+                <p>Pick one or two types and Digital Decks assembles the best legal deck it can from cards you own — complete evolution lines, trainers, energy — and rates it out of five stars.</p>
             </div>
             <div class="card">
                 <div class="icon">&#x1F5E3;</div>
                 <h3>Reads aloud</h3>
-                <p>Tap the speaker and Pricedex reads card details and coaching tips out loud, so kids who can't read yet can still use it on their own.</p>
+                <p>Tap the speaker and Digital Decks reads card details and coaching tips out loud, so kids who can't read yet can still use it on their own.</p>
             </div>
             <div class="card">
                 <div class="icon">&#x1F9D2;</div>
@@ -222,14 +222,14 @@
                 <div class="step-num">2</div>
                 <div>
                     <h3>Scan a card</h3>
-                    <p>Point at the number in the corner — like 4/102. Pricedex finds the card, shows the artwork, the set, the rarity and the price. Tap to add it to the collection.</p>
+                    <p>Point at the number in the corner — like 4/102. Digital Decks finds the card, shows the artwork, the set, the rarity and the price. Tap to add it to the collection.</p>
                 </div>
             </div>
             <div class="step">
                 <div class="step-num">3</div>
                 <div>
                     <h3>Build a deck</h3>
-                    <p>Choose one or two types. Pricedex builds the strongest legal deck it can from the cards that kid owns, keeping evolution lines together and matching energy to attack costs.</p>
+                    <p>Choose one or two types. Digital Decks builds the strongest legal deck it can from the cards that kid owns, keeping evolution lines together and matching energy to attack costs.</p>
                 </div>
             </div>
             <div class="step">
@@ -255,23 +255,23 @@
             <div class="privacy-item"><span class="check">&check;</span><span>No location, contacts, microphone, or photo library access.</span></div>
             <div class="privacy-item"><span class="check">&check;</span><span>The one link out of the app is behind a parental gate.</span></div>
         </div>
-        <p style="text-align:center; margin-top:28px;"><a href="pricedex-privacy.html">Read the full Privacy Policy →</a></p>
+        <p style="text-align:center; margin-top:28px;"><a href="digitaldecks-privacy.html">Read the full Privacy Policy →</a></p>
     </div>
 </section>
 
 <section>
     <div class="disclaimer">
-        <p><strong>About prices.</strong> Pricedex shows rough estimates gathered from public market data and current listings. Graded figures reflect what sellers are <em>asking</em>, not what cards have sold for, and nothing accounts for condition, centring or authenticity. Pricedex does not provide appraisals or financial advice — please don't use it to decide what to pay for, sell, or insure a card.</p>
-        <p><strong>Unofficial fan tool.</strong> Pricedex is not affiliated with, endorsed by, or approved by Nintendo, Creatures Inc., GAME FREAK inc., The Pokémon Company International, or Wizards of the Coast. Pokémon and all related names and artwork are trademarks and copyrighted works of their respective owners.</p>
+        <p><strong>About prices.</strong> Digital Decks shows rough estimates gathered from public market data and current listings. Graded figures reflect what sellers are <em>asking</em>, not what cards have sold for, and nothing accounts for condition, centring or authenticity. Digital Decks does not provide appraisals or financial advice — please don't use it to decide what to pay for, sell, or insure a card.</p>
+        <p><strong>Unofficial fan tool.</strong> Digital Decks is not affiliated with, endorsed by, or approved by Nintendo, Creatures Inc., GAME FREAK inc., The Pokémon Company International, or Wizards of the Coast. Pokémon and all related names and artwork are trademarks and copyrighted works of their respective owners.</p>
     </div>
 </section>
 
 <footer>
     <div class="footer-links">
-        <a href="pricedex.html">Pricedex Home</a>
-        <a href="pricedex-privacy.html">Privacy Policy</a>
-        <a href="pricedex-terms.html">Terms of Service</a>
-        <a href="pricedex-support.html">Support</a>
+        <a href="digitaldecks.html">Digital Decks Home</a>
+        <a href="digitaldecks-privacy.html">Privacy Policy</a>
+        <a href="digitaldecks-terms.html">Terms of Service</a>
+        <a href="digitaldecks-support.html">Support</a>
         <a href="mailto:b2gaudio@gmail.com">Contact</a>
     </div>
     <div class="footer-links">
