@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Support — CommonHealth</title>
+    <meta name="description" content="CommonHealth support. Help with setup, reading your documents, deadlines, and filing your insurance appeal.">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        :root {
+            --bg: #0A0A0F;
+            --surface: #151520;
+            --accent: #3FBF7F;
+            --text: #F5F5F7;
+            --text2: #A1A1AA;
+            --text3: #71717A;
+            --border: #2A2A3A;
+        }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Segoe UI', Roboto, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.7;
+            -webkit-font-smoothing: antialiased;
+        }
+        nav {
+            position: fixed; top: 0; width: 100%; z-index: 100;
+            background: rgba(10, 10, 15, 0.85);
+            backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--border);
+        }
+        .nav-inner {
+            max-width: 1100px; margin: 0 auto; padding: 16px 24px;
+            display: flex; justify-content: space-between; align-items: center;
+        }
+        .logo { font-size: 1.4rem; font-weight: 700; color: var(--text); text-decoration: none; letter-spacing: -0.5px; }
+        .logo span { color: var(--accent); }
+        .nav-links { display: flex; gap: 32px; list-style: none; }
+        .nav-links a { color: var(--text2); text-decoration: none; font-size: 0.9rem; font-weight: 500; transition: color 0.2s; }
+        .nav-links a:hover { color: var(--text); }
+        .content { max-width: 760px; margin: 0 auto; padding: 120px 24px 80px; }
+        .app-badge {
+            display: inline-flex; align-items: center; gap: 10px;
+            background: var(--surface); border: 1px solid var(--border);
+            border-radius: 12px; padding: 8px 16px; margin-bottom: 24px;
+        }
+        .app-badge svg { width: 28px; height: 28px; }
+        .app-badge span { font-size: 0.95rem; font-weight: 600; color: var(--text2); }
+        h1 { font-size: 2.4rem; font-weight: 700; margin-bottom: 8px; letter-spacing: -0.5px; }
+        .last-updated { color: var(--text3); font-size: 0.9rem; margin-bottom: 40px; }
+        h2 { font-size: 1.3rem; font-weight: 600; margin-top: 40px; margin-bottom: 12px; color: var(--accent); }
+        p { color: var(--text2); margin-bottom: 16px; font-size: 0.95rem; }
+        ul { color: var(--text2); margin-bottom: 16px; padding-left: 24px; font-size: 0.95rem; }
+        li { margin-bottom: 8px; }
+        a { color: var(--accent); }
+        code { background: var(--surface); padding: 2px 6px; border-radius: 4px; font-size: 0.85rem; }
+        .callout {
+            background: var(--surface); border: 1px solid var(--border);
+            border-left: 3px solid var(--accent);
+            border-radius: 8px; padding: 20px 24px; margin: 24px 0;
+        }
+        .callout p:last-child { margin-bottom: 0; }
+        footer { padding: 40px 24px; border-top: 1px solid var(--border); text-align: center; }
+        .footer-links { display: flex; justify-content: center; gap: 32px; margin-bottom: 16px; flex-wrap: wrap; }
+        .footer-links a { color: var(--text2); text-decoration: none; font-size: 0.9rem; }
+        .copyright { color: var(--text3); font-size: 0.85rem; }
+        @media (max-width: 480px) {
+            h1 { font-size: 1.8rem; }
+            .nav-links { display: none; }
+        }
+    </style>
+</head>
+<body>
+
+<nav>
+    <div class="nav-inner">
+        <a href="/" class="logo">B2G<span>audio</span></a>
+        <ul class="nav-links">
+            <li><a href="commonhealth.html">CommonHealth Home</a></li>
+            <li><a href="commonhealth-privacy.html">Privacy</a></li>
+            <li><a href="commonhealth-terms.html">Terms</a></li>
+            <li><a href="commonhealth-support.html">Support</a></li>
+            <li><a href="/">B2Gaudio</a></li>
+        </ul>
+    </div>
+</nav>
+
+<div class="content">
+    <div class="app-badge">
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M12 21s-7-4.5-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 11c0 5.5-7 10-7 10z" stroke="#3FBF7F" stroke-width="1.5" stroke-linejoin="round" fill="none"/>
+            <path d="M8.5 12h2l1-2 1.5 3.5 1-1.5h1.5" stroke="#3FBF7F" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        <span>CommonHealth</span>
+    </div>
+
+    <h1>Support</h1>
+    <p class="last-updated">CommonHealth for iPhone</p>
+
+    <div class="callout">
+        <p>Email <a href="mailto:b2gaudio@gmail.com">b2gaudio@gmail.com</a> and we will get back to you. <strong>Please do not send photos of your denial letter, your medical records, or your insurance card</strong> — we do not want your health information, and email is not a safe place for it. Describe what happened instead.</p>
+    </div>
+
+    <h2>Before you file: the three things that matter most</h2>
+    <ul>
+        <li><strong>Your deadline.</strong> Missing it is the most common reason an appeal fails. The date on your denial letter governs. If CommonHealth marks a deadline as "estimated", it means the letter did not state one plainly — check and correct it.</li>
+        <li><strong>The flags.</strong> If the App marks something under "Before you file", an automated check could not support that statement from your records. Fix it or remove it.</li>
+        <li><strong>The prescriber's supporting statement.</strong> For a medication denial this is usually the single most persuasive attachment. Ask your prescriber for it.</li>
+    </ul>
+
+    <h2>Setup takes a large download — why?</h2>
+    <p>CommonHealth does all its reading and writing on your phone, so your documents never leave it. That means the AI models have to be on your phone: about 5&nbsp;GB, downloaded once, over Wi-Fi. You can leave the app while it downloads. If it seems stuck at 0%, you are probably on cellular — connect to Wi-Fi.</p>
+
+    <h2>Common questions</h2>
+    <p><strong>It says my phone may not have enough memory.</strong> The models need roughly 3&nbsp;GB of working memory to write a letter. On a device with less, the app may close while generating. It will still let you try, but a newer phone will work better.</p>
+    <p><strong>Writing the letter is taking minutes.</strong> That is normal — the work is happening on your phone, not on a server. Keep the app open. A full appeal usually takes one to three minutes.</p>
+    <p><strong>It could not read my photos.</strong> Retake them in good light, with the page flat and the whole page in frame. Glare and shadows are the usual culprits. You can also type the details in yourself.</p>
+    <p><strong>The app closed while writing.</strong> Your letter is saved. Reopen the app and you will see an offer to pick it back up.</p>
+    <p><strong>It got a detail wrong.</strong> Every field on the "Is this right?" screen is editable, and you can edit the finished letter before sending. Please tell us what it misread — that is the most useful bug report we can get.</p>
+    <p><strong>Can it send the appeal for me?</strong> No, and that is deliberate. You review and send it yourself, by mail, fax, or your plan's member portal.</p>
+    <p><strong>How do I delete my information?</strong> Delete an individual appeal from its screen, or delete the app to remove everything. We never had a copy.</p>
+
+    <h2>Reporting a problem</h2>
+    <p>The most helpful report includes what you were doing, what you expected, and what happened instead. If the app has a Diagnostics screen enabled in your build, you can copy the technical log — it redacts your health details, but please read it before sending.</p>
+
+    <h2>Contact</h2>
+    <p><a href="mailto:b2gaudio@gmail.com">b2gaudio@gmail.com</a></p>
+    <p>CommonHealth is early software built for patients in Louisville and southern Indiana. If it helped you, or if it let you down, we would genuinely like to know.</p>
+
+</div>
+
+<footer>
+    <div class="footer-links">
+        <a href="commonhealth.html">CommonHealth</a>
+        <a href="commonhealth-privacy.html">Privacy Policy</a>
+        <a href="commonhealth-terms.html">Terms of Service</a>
+        <a href="commonhealth-support.html">Support</a>
+        <a href="mailto:b2gaudio@gmail.com">Contact</a>
+    </div>
+    <p class="copyright">&copy; 2026 B2Gaudio. All rights reserved.</p>
+</footer>
+
+</body>
+</html>
