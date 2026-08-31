@@ -81,6 +81,92 @@
             <li><a href="digitaldecks-terms.html">Terms</a></li>
             <li><a href="/">B2Gaudio</a></li>
         </ul>
+<!-- app-menu:start -->
+<!-- APP MENU — injected into every page by tools/add_app_menu.py. Edit here, then re-run it. -->
+<style>
+/* A single menu listing every app, in the top right of the nav bar.
+   It matters most on phones: every page hides .nav-links under 768px, so before this the
+   site had NO navigation at all on a phone — you could reach a privacy page from Google
+   and have no way to get anywhere else. */
+.app-menu { position: relative; margin-left: 20px; }
+.app-menu-btn {
+    display: flex; flex-direction: column; justify-content: center; gap: 5px;
+    width: 42px; height: 38px; padding: 0 8px; cursor: pointer;
+    background: transparent; border: 1px solid var(--border); border-radius: 9px;
+    transition: border-color .2s, background .2s;
+}
+.app-menu-btn:hover { border-color: var(--accent); background: rgba(255,255,255,.04); }
+.app-menu-btn span {
+    display: block; height: 2px; width: 100%; border-radius: 2px;
+    background: var(--text); transition: transform .25s, opacity .2s;
+}
+.app-menu[open] .app-menu-btn span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.app-menu[open] .app-menu-btn span:nth-child(2) { opacity: 0; }
+.app-menu[open] .app-menu-btn span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+.app-menu-panel {
+    position: absolute; top: calc(100% + 12px); right: 0; z-index: 200;
+    min-width: 250px; padding: 8px;
+    background: var(--surface); border: 1px solid var(--border); border-radius: 14px;
+    box-shadow: 0 24px 60px rgba(0,0,0,.5);
+}
+.app-menu-panel h4 {
+    font-size: .7rem; letter-spacing: 1.2px; text-transform: uppercase;
+    color: var(--text2); font-weight: 600; padding: 10px 12px 6px;
+}
+.app-menu-panel a {
+    display: block; padding: 10px 12px; border-radius: 9px;
+    color: var(--text); text-decoration: none; font-size: .95rem; font-weight: 500;
+    transition: background .15s;
+}
+.app-menu-panel a:hover { background: rgba(255,255,255,.06); }
+.app-menu-panel a small { display: block; color: var(--text2); font-size: .78rem; font-weight: 400; }
+/* The page you are on. A trailing marker lands under the description on its own line and
+   reads as a stray full stop, so the cue is an edge instead. */
+.app-menu-panel a[aria-current="page"] {
+    background: rgba(255,255,255,.06);
+    box-shadow: inset 3px 0 0 var(--accent);
+}
+/* The button is the only navigation on a phone, so it must never be the thing that is hidden. */
+@media (max-width: 768px) { .app-menu { display: block; margin-left: auto; } }
+</style>
+
+<details class="app-menu">
+    <summary class="app-menu-btn" aria-label="All apps" title="All apps">
+        <span></span><span></span><span></span>
+    </summary>
+    <nav class="app-menu-panel" aria-label="All apps">
+        <h4>Apps</h4>
+        <a href="/">B2Gaudio<small>Listen to music together over WiFi</small></a>
+        <a href="/drivemail.html">DriveMail Voice<small>Your email, read aloud while you drive</small></a>
+        <a href="/digitaldecks.html">Digital Decks<small>Scan, collect and build card decks</small></a>
+        <a href="/commonhealth.html">CommonHealth<small>Appeal a denied insurance claim</small></a>
+    </nav>
+</details>
+
+<script>
+// Close on outside click and on Escape. <details> gives us the open/close behaviour and
+// keyboard support for free; these are the two things it does not do.
+(function () {
+    var menu = document.currentScript.parentNode.querySelector('.app-menu')
+        || document.querySelector('.app-menu');
+    if (!menu) return;
+    document.addEventListener('click', function (e) {
+        if (menu.open && !menu.contains(e.target)) menu.open = false;
+    });
+    document.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape') menu.open = false;
+    });
+    // Mark the page you are on, so the menu answers "where am I" as well as "where can I go".
+    var here = location.pathname.replace(/\/index\.html$/, '/') || '/';
+    menu.querySelectorAll('a').forEach(function (a) {
+        var target = new URL(a.getAttribute('href'), location.origin).pathname;
+        if (target === here) a.setAttribute('aria-current', 'page');
+    });
+})();
+</script>
+
+<!-- app-menu:end -->
     </div>
 </nav>
 
@@ -94,16 +180,16 @@
     </div>
 
     <h1>Privacy Policy</h1>
-    <p class="last-updated">Last updated: July 25, 2026</p>
+    <p class="last-updated">Last updated: August 30, 2026</p>
 
     <div class="callout">
-        <p><strong>The short version:</strong> Digital Decks has no accounts, no sign-in, no analytics, no advertising, and no tracking of any kind. We do not operate a server that stores your information. Your cards, decks, and player profiles live only on your device. Card photos never leave your phone.</p>
+        <p><strong>The short version:</strong> Digital Decks has no accounts, no sign-in, no analytics, no advertising, and no tracking of any kind. Your cards, decks, and player profiles live only on your device. Card photos never leave your phone. Card lookups pass through a small service we run, which stores card information only — never anything about you.</p>
     </div>
 
     <p>Digital Decks ("we," "our," or "the App") is a Pokémon trading card scanner, collection tracker, and deck builder made for kids and families. This Privacy Policy explains exactly what the App does and does not do with information. It applies to the Digital Decks application for iPhone and iPad.</p>
 
     <h2>1. Information We Collect</h2>
-    <p><strong>We collect nothing.</strong> Digital Decks has no user accounts, no registration, no login, and no server that stores information about you. We — the developer — never receive your data, because there is nowhere for it to be sent.</p>
+    <p><strong>We collect nothing.</strong> Digital Decks has no user accounts, no registration, and no login. We operate one small service that looks up cards on the App’s behalf (described in section 3); it stores card information only. There is no database of users, no profile, and nothing tied to you or your device.</p>
     <p>The App does store information <em>locally on your device</em> so it can work:</p>
     <ul>
         <li><strong>Player profiles:</strong> A name, a picture, and a colour that you choose for each player. These are typed by you and stay on the device. We suggest using a first name or a nickname only.</li>
@@ -123,11 +209,15 @@
 
     <h2>3. Information Sent Over the Internet</h2>
     <p>To identify a card and show its picture and price, the App must ask a card database for that information. When you scan or search for a card, the App sends only the card identifier or the name you typed — for example, "Charizard" or "4/102".</p>
+    <p>Those requests go to a small lookup service we run (a Cloudflare Worker). It asks the card databases below on the App's behalf and keeps a copy of the <em>card</em> information it receives, so that the next person to scan the same card gets an answer quickly even when a database is unavailable. What it stores is card data — names, numbers, artwork links and prices. It does not store, log, or build any record of who asked.</p>
     <ul>
-        <li><strong>Pokémon TCG API (pokemontcg.io):</strong> Provides card details, artwork, and market prices. The App sends the card number or search term. Card artwork is downloaded from this service.</li>
-        <li><strong>Graded price lookups:</strong> If graded (PSA 10 / CGC 10) pricing is enabled, the App asks our pricing service for the typical listing price of a specific card. It sends only the card name, number and grade — nothing about you or your device beyond what any web request necessarily includes.</li>
+        <li><strong>Pokémon TCG API (pokemontcg.io):</strong> card details, artwork and market prices.</li>
+        <li><strong>TCGdex:</strong> a second card database, used for cards the first does not carry — promotional cards in particular.</li>
+        <li><strong>TCGplayer catalogue (tcgcsv.com):</strong> a third source of card details, artwork and market prices.</li>
+        <li><strong>eBay Browse API:</strong> used to estimate what a card sells for when no catalogue price exists, and for graded (PSA 10 / CGC 10) figures. Only the card name, number and grade are sent.</li>
+        <li><strong>Card artwork</strong> is downloaded directly from the card databases above.</li>
     </ul>
-    <p>These requests contain <strong>no name, no account, no device identifier, and no advertising identifier</strong>. As with any internet request, the service receiving it can see the originating IP address; we do not log, store, or associate that with you.</p>
+    <p>These requests contain <strong>no name, no account, no device identifier, and no advertising identifier</strong>. As with any internet request, the service receiving it can see the originating IP address; we do not log, store, or associate that with you or with anything else.</p>
 
     <h2>4. What We Do NOT Do</h2>
     <ul>
@@ -158,7 +248,7 @@
     <p>Digital Decks is a paid app. The purchase is handled entirely by Apple through the App Store. We never see or receive your payment details, billing address, or Apple Account information. The App contains no in-app purchases and no subscriptions.</p>
 
     <h2>8. Data Storage and Security</h2>
-    <p>Your collection is stored in the App's private, sandboxed storage on your device, protected by iOS app sandboxing and by your device passcode and encryption. Because the data never leaves your device, there is no server to breach and no cloud copy to expose. All network requests the App does make use encrypted HTTPS connections.</p>
+    <p>Your collection is stored in the App's private, sandboxed storage on your device, protected by iOS app sandboxing and by your device passcode and encryption. Because your collection never leaves your device, there is no copy of it anywhere else to breach or expose. All network requests the App does make use encrypted HTTPS connections.</p>
 
     <h2>9. Deleting Your Data</h2>
     <p>You are always in full control:</p>
@@ -171,7 +261,11 @@
 
     <h2>10. Third-Party Services</h2>
     <ul>
-        <li><strong>Pokémon TCG API</strong> — card data, artwork, and market pricing. See <a href="https://pokemontcg.io" target="_blank" rel="noopener">pokemontcg.io</a>.</li>
+        <li><strong>Pokémon TCG API</strong> — card data, artwork and market pricing. See <a href="https://pokemontcg.io" target="_blank" rel="noopener">pokemontcg.io</a>.</li>
+        <li><strong>TCGdex</strong> — additional card data, for cards the primary database does not carry. See <a href="https://tcgdex.dev" target="_blank" rel="noopener">tcgdex.dev</a>.</li>
+        <li><strong>TCGplayer catalogue via tcgcsv.com</strong> — additional card data, artwork and market pricing. See <a href="https://tcgcsv.com" target="_blank" rel="noopener">tcgcsv.com</a>.</li>
+        <li><strong>eBay Browse API</strong> — public listing prices, used to estimate card values. See <a href="https://www.ebay.com/help/policies/member-behaviour-policies/user-privacy-notice-privacy-policy" target="_blank" rel="noopener">eBay's Privacy Notice</a>.</li>
+        <li><strong>Cloudflare</strong> — hosts the lookup service described in section 3. See <a href="https://www.cloudflare.com/privacypolicy/" target="_blank" rel="noopener">Cloudflare's Privacy Policy</a>.</li>
         <li><strong>Apple App Store</strong> — handles the purchase. See <a href="https://www.apple.com/legal/privacy/" target="_blank" rel="noopener">Apple's Privacy Policy</a>.</li>
     </ul>
     <p>Digital Decks embeds no third-party analytics, advertising, or social media SDKs of any kind.</p>

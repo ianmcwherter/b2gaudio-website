@@ -80,6 +80,92 @@
             <li><a href="digitaldecks-privacy.html">Privacy</a></li>
             <li><a href="/">B2Gaudio</a></li>
         </ul>
+<!-- app-menu:start -->
+<!-- APP MENU — injected into every page by tools/add_app_menu.py. Edit here, then re-run it. -->
+<style>
+/* A single menu listing every app, in the top right of the nav bar.
+   It matters most on phones: every page hides .nav-links under 768px, so before this the
+   site had NO navigation at all on a phone — you could reach a privacy page from Google
+   and have no way to get anywhere else. */
+.app-menu { position: relative; margin-left: 20px; }
+.app-menu-btn {
+    display: flex; flex-direction: column; justify-content: center; gap: 5px;
+    width: 42px; height: 38px; padding: 0 8px; cursor: pointer;
+    background: transparent; border: 1px solid var(--border); border-radius: 9px;
+    transition: border-color .2s, background .2s;
+}
+.app-menu-btn:hover { border-color: var(--accent); background: rgba(255,255,255,.04); }
+.app-menu-btn span {
+    display: block; height: 2px; width: 100%; border-radius: 2px;
+    background: var(--text); transition: transform .25s, opacity .2s;
+}
+.app-menu[open] .app-menu-btn span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.app-menu[open] .app-menu-btn span:nth-child(2) { opacity: 0; }
+.app-menu[open] .app-menu-btn span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+.app-menu-panel {
+    position: absolute; top: calc(100% + 12px); right: 0; z-index: 200;
+    min-width: 250px; padding: 8px;
+    background: var(--surface); border: 1px solid var(--border); border-radius: 14px;
+    box-shadow: 0 24px 60px rgba(0,0,0,.5);
+}
+.app-menu-panel h4 {
+    font-size: .7rem; letter-spacing: 1.2px; text-transform: uppercase;
+    color: var(--text2); font-weight: 600; padding: 10px 12px 6px;
+}
+.app-menu-panel a {
+    display: block; padding: 10px 12px; border-radius: 9px;
+    color: var(--text); text-decoration: none; font-size: .95rem; font-weight: 500;
+    transition: background .15s;
+}
+.app-menu-panel a:hover { background: rgba(255,255,255,.06); }
+.app-menu-panel a small { display: block; color: var(--text2); font-size: .78rem; font-weight: 400; }
+/* The page you are on. A trailing marker lands under the description on its own line and
+   reads as a stray full stop, so the cue is an edge instead. */
+.app-menu-panel a[aria-current="page"] {
+    background: rgba(255,255,255,.06);
+    box-shadow: inset 3px 0 0 var(--accent);
+}
+/* The button is the only navigation on a phone, so it must never be the thing that is hidden. */
+@media (max-width: 768px) { .app-menu { display: block; margin-left: auto; } }
+</style>
+
+<details class="app-menu">
+    <summary class="app-menu-btn" aria-label="All apps" title="All apps">
+        <span></span><span></span><span></span>
+    </summary>
+    <nav class="app-menu-panel" aria-label="All apps">
+        <h4>Apps</h4>
+        <a href="/">B2Gaudio<small>Listen to music together over WiFi</small></a>
+        <a href="/drivemail.html">DriveMail Voice<small>Your email, read aloud while you drive</small></a>
+        <a href="/digitaldecks.html">Digital Decks<small>Scan, collect and build card decks</small></a>
+        <a href="/commonhealth.html">CommonHealth<small>Appeal a denied insurance claim</small></a>
+    </nav>
+</details>
+
+<script>
+// Close on outside click and on Escape. <details> gives us the open/close behaviour and
+// keyboard support for free; these are the two things it does not do.
+(function () {
+    var menu = document.currentScript.parentNode.querySelector('.app-menu')
+        || document.querySelector('.app-menu');
+    if (!menu) return;
+    document.addEventListener('click', function (e) {
+        if (menu.open && !menu.contains(e.target)) menu.open = false;
+    });
+    document.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape') menu.open = false;
+    });
+    // Mark the page you are on, so the menu answers "where am I" as well as "where can I go".
+    var here = location.pathname.replace(/\/index\.html$/, '/') || '/';
+    menu.querySelectorAll('a').forEach(function (a) {
+        var target = new URL(a.getAttribute('href'), location.origin).pathname;
+        if (target === here) a.setAttribute('aria-current', 'page');
+    });
+})();
+</script>
+
+<!-- app-menu:end -->
     </div>
 </nav>
 
@@ -93,7 +179,7 @@
     </div>
 
     <h1>Terms of Service</h1>
-    <p class="last-updated">Last updated: July 25, 2026</p>
+    <p class="last-updated">Last updated: August 30, 2026</p>
 
     <p>Welcome to Digital Decks. By downloading, installing, or using the Digital Decks application for iPhone and iPad ("the App"), you agree to these Terms of Service ("Terms"). If you do not agree, please do not use the App.</p>
 
@@ -138,7 +224,7 @@
     <h2>10. Prices Are Estimates, Not Appraisals</h2>
     <p>This is important, so it is stated plainly:</p>
     <ul>
-        <li>"Ungraded" prices come from a third-party market data feed and reflect recent market activity for a printing, not the specific physical card you hold.</li>
+        <li>"Ungraded" prices come from third-party market data feeds and reflect recent market activity for a printing, not the specific physical card you hold. For very recently released sets, where no catalogue price exists yet, the figure shown is drawn from <strong>current asking prices in public listings</strong> instead — again, what sellers are asking rather than what cards have sold for.</li>
         <li>Graded (PSA 10 / CGC 10) figures are drawn from <strong>current asking prices in public listings</strong> — what sellers are asking, not what cards have actually sold for. Asking prices typically run well above realised sale prices.</li>
         <li>Prices ignore condition, centring, authenticity, edition, and every other factor that determines what a real card is worth.</li>
         <li>Values change constantly and the figures shown may be out of date.</li>
