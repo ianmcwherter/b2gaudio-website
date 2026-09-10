@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<style>
+  * { margin:0; padding:0; box-sizing:border-box; }
+  :root{
+    --bg:#0A0A0F; --surface:#151520; --surface2:#1E1E2E;
+    --accent:#FF6B35; --accent-dim:#CC5529;
+    --text:#F5F5F7; --text2:#A1A1AA; --text3:#71717A; --border:#2A2A3A;
+  }
+  html,body{ width:1200px; height:630px; }
+  body{
+    background:var(--bg);
+    font-family:-apple-system,"SF Pro Display","Helvetica Neue",Arial,sans-serif;
+    color:var(--text);
+    overflow:hidden;
+    position:relative;
+  }
+  /* warm glow behind the phones */
+  .glow{
+    position:absolute; width:900px; height:900px; border-radius:50%;
+    right:-260px; top:-190px;
+    background:radial-gradient(circle, rgba(255,107,53,.30) 0%, rgba(255,107,53,.10) 38%, rgba(255,107,53,0) 68%);
+  }
+  .glow2{
+    position:absolute; width:620px; height:620px; border-radius:50%;
+    left:-240px; bottom:-300px;
+    background:radial-gradient(circle, rgba(255,107,53,.13) 0%, rgba(255,107,53,0) 70%);
+  }
+  .wrap{ position:relative; display:flex; height:100%; align-items:center; }
+
+  /* ---------- left ---------- */
+  .left{ width:645px; padding:0 0 0 74px; }
+  .eyebrow{
+    display:inline-block; font-size:16px; font-weight:700; letter-spacing:.17em;
+    text-transform:uppercase; color:var(--accent);
+    border:1.5px solid rgba(255,107,53,.45); border-radius:999px;
+    padding:8px 17px; margin-bottom:29px;
+  }
+  h1{
+    font-size:74px; line-height:.99; font-weight:800; letter-spacing:-.033em;
+    margin-bottom:25px;
+  }
+  h1 .accent{ color:var(--accent); }
+  .sub{
+    font-size:25px; line-height:1.37; color:var(--text2);
+    font-weight:400; max-width:545px; margin-bottom:33px;
+  }
+  .sub strong{ color:var(--text); font-weight:600; }
+  .chips{ display:flex; gap:9px; flex-wrap:wrap; }
+  .chip{
+    font-size:16.5px; font-weight:600; color:var(--text2);
+    background:var(--surface2); border:1px solid var(--border);
+    border-radius:9px; padding:8px 14px;
+  }
+
+  /* ---------- right: three phones ---------- */
+  .right{ flex:1; display:flex; align-items:center; justify-content:center;
+          gap:26px; padding-right:64px; position:relative; }
+  .phone{
+    width:139px; height:300px; border-radius:25px;
+    background:linear-gradient(160deg,#1a1a26 0%,#101018 100%);
+    border:2px solid #33333f;
+    box-shadow:0 26px 52px rgba(0,0,0,.62), 0 0 0 1px rgba(255,255,255,.045) inset;
+    padding:15px 13px; display:flex; flex-direction:column;
+    position:relative;
+  }
+  /* All three identical height so the progress bars form ONE unbroken line
+     across the row — that alignment IS the sync message. */
+  .notch{
+    width:46px; height:5px; border-radius:3px; background:#2b2b38;
+    margin:0 auto 15px;
+  }
+  /* identical waveform in all three = the sync story */
+  .wave{ display:flex; align-items:flex-end; justify-content:center;
+         gap:3.5px; height:74px; margin-bottom:16px; }
+  .wave i{ width:5px; border-radius:2.5px; background:var(--accent); display:block; }
+  .wave i.dim{ background:var(--accent-dim); opacity:.5; }
+
+  .meta{ height:7px; border-radius:4px; background:#2e2e3b; margin:0 auto 7px; }
+  .meta.a{ width:74%; }
+  .meta.b{ width:47%; background:#25252f; }
+
+  .bar{ margin-top:auto; }
+  .track{ height:5px; border-radius:3px; background:#2e2e3b; position:relative; }
+  /* SAME fill % on every phone — that is the whole point */
+  .fill{ position:absolute; left:0; top:0; bottom:0; width:62%;
+         border-radius:3px; background:var(--accent); }
+  .fill::after{
+    content:""; position:absolute; right:-4px; top:50%; transform:translateY(-50%);
+    width:10px; height:10px; border-radius:50%; background:var(--accent);
+    box-shadow:0 0 11px rgba(255,107,53,.95);
+  }
+  .times{ display:flex; justify-content:space-between; margin-top:8px; }
+  .times span{ font-size:10px; color:var(--text3); font-variant-numeric:tabular-nums;
+               font-weight:600; letter-spacing:.02em; }
+
+  /* sync tick above the phones */
+  .synctag{
+    position:absolute; top:-54px; left:50%; transform:translateX(-50%);
+    margin-left:-32px; /* .right has padding-right:64px — re-centre over the phone row */
+    z-index:5;         /* declared before the phones in DOM, so lift it above them */
+    display:flex; align-items:center; gap:8px;
+    background:rgba(255,107,53,.13); border:1px solid rgba(255,107,53,.4);
+    border-radius:999px; padding:7px 15px; white-space:nowrap;
+  }
+  .synctag b{ font-size:15px; font-weight:700; color:var(--accent); letter-spacing:.03em; }
+  .dot{ width:8px; height:8px; border-radius:50%; background:var(--accent);
+        box-shadow:0 0 9px rgba(255,107,53,.9); }
+
+  .url{
+    position:absolute; left:74px; bottom:44px;
+    font-size:19px; font-weight:600; color:var(--text3); letter-spacing:.015em;
+  }
+</style>
+</head>
+<body>
+  <div class="glow"></div>
+  <div class="glow2"></div>
+
+  <div class="wrap">
+    <div class="left">
+      <div class="eyebrow">Free · iPhone &amp; iPad</div>
+      <h1>One song.<br><span class="accent">Every phone.</span></h1>
+      <p class="sub">
+        Turn every phone in the room into <strong>one synced speaker</strong> —
+        over WiFi, with no Bluetooth, no cable and no account.
+      </p>
+      <div class="chips">
+        <div class="chip">Music</div>
+        <div class="chip">Podcasts</div>
+        <div class="chip">Audiobooks</div>
+        <div class="chip">Video</div>
+      </div>
+    </div>
+
+    <div class="right">
+      <div class="synctag"><span class="dot"></span><b>IN SYNC</b></div>
+
+      <!-- phone 1 -->
+      <div class="phone">
+        <div class="notch"></div>
+        <div class="wave">
+          <i style="height:26px"></i><i style="height:48px"></i><i style="height:68px"></i>
+          <i style="height:39px"></i><i style="height:57px"></i><i style="height:22px"></i>
+          <i class="dim" style="height:35px"></i><i class="dim" style="height:15px"></i>
+        </div>
+        <div class="meta a"></div><div class="meta b"></div>
+        <div class="bar">
+          <div class="track"><div class="fill"></div></div>
+          <div class="times"><span>1:47</span><span>2:52</span></div>
+        </div>
+      </div>
+
+      <!-- phone 2 (host, taller) -->
+      <div class="phone">
+        <div class="notch"></div>
+        <div class="wave">
+          <i style="height:26px"></i><i style="height:48px"></i><i style="height:68px"></i>
+          <i style="height:39px"></i><i style="height:57px"></i><i style="height:22px"></i>
+          <i class="dim" style="height:35px"></i><i class="dim" style="height:15px"></i>
+        </div>
+        <div class="meta a"></div><div class="meta b"></div>
+        <div class="bar">
+          <div class="track"><div class="fill"></div></div>
+          <div class="times"><span>1:47</span><span>2:52</span></div>
+        </div>
+      </div>
+
+      <!-- phone 3 -->
+      <div class="phone">
+        <div class="notch"></div>
+        <div class="wave">
+          <i style="height:26px"></i><i style="height:48px"></i><i style="height:68px"></i>
+          <i style="height:39px"></i><i style="height:57px"></i><i style="height:22px"></i>
+          <i class="dim" style="height:35px"></i><i class="dim" style="height:15px"></i>
+        </div>
+        <div class="meta a"></div><div class="meta b"></div>
+        <div class="bar">
+          <div class="track"><div class="fill"></div></div>
+          <div class="times"><span>1:47</span><span>2:52</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="url">b2gaudio.com</div>
+</body>
+</html>
