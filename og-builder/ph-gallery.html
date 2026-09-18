@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>B2Gaudio — Product Hunt gallery slides</title>
+<style>
+  *{margin:0;padding:0;box-sizing:border-box}
+  :root{
+    --bg:#0A0A0F;--surface:#151520;--surface2:#1E1E2E;
+    --accent:#FF6B35;--accent-dim:#CC5529;
+    --text:#F5F5F7;--text2:#A1A1AA;--text3:#71717A;--border:#2A2A3A;
+  }
+  html,body{width:1270px;height:760px}
+  body{
+    background:var(--bg);color:var(--text);overflow:hidden;position:relative;
+    font-family:-apple-system,"SF Pro Display","Helvetica Neue",Arial,sans-serif;
+  }
+  .slide{display:none;width:1270px;height:760px;position:relative}
+  body.s1 #s1,body.s2 #s2,body.s3 #s3,body.s4 #s4,body.s5 #s5{display:block}
+
+  .glow{position:absolute;width:1000px;height:1000px;border-radius:50%;
+    right:-300px;top:-240px;
+    background:radial-gradient(circle,rgba(255,107,53,.26) 0%,rgba(255,107,53,.08) 40%,rgba(255,107,53,0) 70%)}
+  .glowC{position:absolute;width:1100px;height:1100px;border-radius:50%;
+    left:50%;top:50%;transform:translate(-50%,-50%);
+    background:radial-gradient(circle,rgba(255,107,53,.17) 0%,rgba(255,107,53,0) 65%)}
+
+  .pad{position:relative;height:100%;padding:76px 84px;display:flex;flex-direction:column}
+  .eyebrow{display:inline-block;align-self:flex-start;font-size:15px;font-weight:700;
+    letter-spacing:.18em;text-transform:uppercase;color:var(--accent);
+    border:1.5px solid rgba(255,107,53,.45);border-radius:999px;padding:8px 17px;margin-bottom:26px}
+  h1{font-size:68px;line-height:1;font-weight:800;letter-spacing:-.032em}
+  h2{font-size:56px;line-height:1.04;font-weight:800;letter-spacing:-.03em;margin-bottom:20px}
+  .accent{color:var(--accent)}
+  .sub{font-size:24px;line-height:1.4;color:var(--text2);max-width:660px}
+  .sub strong{color:var(--text);font-weight:600}
+  .foot{position:absolute;left:84px;bottom:46px;font-size:18px;font-weight:600;color:var(--text3)}
+
+  /* phones */
+  .phone{width:150px;height:312px;border-radius:26px;
+    background:linear-gradient(160deg,#1a1a26,#101018);border:2px solid #33333f;
+    box-shadow:0 26px 52px rgba(0,0,0,.6),0 0 0 1px rgba(255,255,255,.04) inset;
+    padding:16px 14px;display:flex;flex-direction:column;position:relative}
+  .notch{width:48px;height:5px;border-radius:3px;background:#2b2b38;margin:0 auto 16px}
+  .wave{display:flex;align-items:flex-end;justify-content:center;gap:4px;height:78px;margin-bottom:18px}
+  .wave i{width:5px;border-radius:2.5px;background:var(--accent);display:block}
+  .wave i.dim{background:var(--accent-dim);opacity:.5}
+  .meta{height:7px;border-radius:4px;background:#2e2e3b;margin:0 auto 7px}
+  .meta.a{width:74%}.meta.b{width:47%;background:#25252f}
+  .bar{margin-top:auto}
+  .track{height:5px;border-radius:3px;background:#2e2e3b;position:relative}
+  .fill{position:absolute;left:0;top:0;bottom:0;width:62%;border-radius:3px;background:var(--accent)}
+  .fill::after{content:"";position:absolute;right:-4px;top:50%;transform:translateY(-50%);
+    width:10px;height:10px;border-radius:50%;background:var(--accent);
+    box-shadow:0 0 11px rgba(255,107,53,.95)}
+  .times{display:flex;justify-content:space-between;margin-top:8px}
+  .times span{font-size:10px;color:var(--text3);font-weight:600;font-variant-numeric:tabular-nums}
+  .tag{position:absolute;top:-16px;left:50%;transform:translateX(-50%);
+    font-size:11px;font-weight:800;letter-spacing:.1em;padding:5px 12px;border-radius:999px;white-space:nowrap}
+  .tag.host{background:var(--accent);color:#0A0A0F}
+  .tag.join{background:var(--surface2);color:var(--text2);border:1px solid var(--border)}
+
+  /* s1 */
+  #s1 .row{display:flex;gap:30px;align-items:center;justify-content:center;margin-top:16px}
+  #s1 .sync{display:inline-flex;align-items:center;gap:9px;align-self:center;
+    background:rgba(255,107,53,.13);border:1px solid rgba(255,107,53,.4);
+    border-radius:999px;padding:8px 16px;margin-bottom:22px}
+  #s1 .sync b{font-size:15px;font-weight:800;color:var(--accent);letter-spacing:.06em}
+  .dot{width:8px;height:8px;border-radius:50%;background:var(--accent);box-shadow:0 0 9px rgba(255,107,53,.9)}
+
+  /* s2 — heading and copy are dialled down so the phone row gets real vertical
+     room; an earlier version had the subtext running underneath the HOST/JOINED
+     tags. The connector lines were removed: at this size they read as artifacts. */
+  #s2 h2{font-size:46px;margin-bottom:16px}
+  #s2 .sub{font-size:20px;max-width:620px}
+  #s2 .stage{flex:1;display:flex;align-items:flex-end;justify-content:center;
+    gap:52px;padding-bottom:8px}
+  #s2 .phone{width:132px;height:250px;padding:13px 11px}
+  #s2 .wave{height:60px;margin-bottom:13px}
+  #s2 .notch{margin-bottom:12px}
+
+  /* s3 */
+  .grid{flex:1;display:grid;grid-template-columns:1fr 1fr;gap:20px;align-content:center}
+  .card{background:var(--surface2);border:1px solid var(--border);border-radius:18px;padding:30px 32px}
+  .card .ic{font-size:38px;line-height:1;margin-bottom:14px}
+  .card h3{font-size:27px;font-weight:700;margin-bottom:7px}
+  .card p{font-size:18px;color:var(--text2);line-height:1.38}
+
+  /* s4 */
+  .cols{flex:1;display:flex;align-items:center;gap:26px}
+  .col{flex:1;border-radius:18px;padding:32px 30px;border:1px solid var(--border);background:var(--surface)}
+  .col.no{opacity:.62}
+  .col .lbl{font-size:13px;font-weight:800;letter-spacing:.16em;text-transform:uppercase;
+    color:var(--text3);margin-bottom:18px}
+  .col.yes .lbl{color:var(--accent)}
+  .col ul{list-style:none}
+  .col li{font-size:23px;font-weight:600;padding:9px 0;display:flex;align-items:center;gap:12px}
+  .x{color:#6b6b78;font-size:21px}
+  .ck{color:var(--accent);font-size:21px}
+
+  /* s5 */
+  .steps{flex:1;display:flex;flex-direction:column;justify-content:center;gap:16px}
+  .step{display:flex;gap:20px;align-items:flex-start;background:var(--surface);
+    border:1px solid var(--border);border-radius:16px;padding:22px 26px}
+  .num{flex:none;width:38px;height:38px;border-radius:10px;background:rgba(255,107,53,.14);
+    border:1px solid rgba(255,107,53,.4);color:var(--accent);
+    font-size:17px;font-weight:800;display:flex;align-items:center;justify-content:center}
+  .step h4{font-size:22px;font-weight:700;margin-bottom:4px}
+  .step p{font-size:17px;color:var(--text2);line-height:1.4}
+</style>
+</head>
+<body>
+
+<!-- 1 — hero -->
+<section class="slide" id="s1">
+  <div class="glow"></div>
+  <div class="pad" style="align-items:center;text-align:center;justify-content:center">
+    <div class="sync"><span class="dot"></span><b>IN SYNC</b></div>
+    <h1>One song. <span class="accent">Every phone.</span></h1>
+    <p class="sub" style="margin-top:20px;text-align:center">
+      Turn every iPhone in the room into <strong>one synced speaker</strong> — over WiFi.
+      No Bluetooth, no cable, no account.
+    </p>
+    <div class="row">
+      <div class="phone"><div class="notch"></div>
+        <div class="wave"><i style="height:28px"></i><i style="height:50px"></i><i style="height:70px"></i><i style="height:40px"></i><i style="height:58px"></i><i style="height:23px"></i><i class="dim" style="height:36px"></i><i class="dim" style="height:16px"></i></div>
+        <div class="meta a"></div><div class="meta b"></div>
+        <div class="bar"><div class="track"><div class="fill"></div></div>
+          <div class="times"><span>1:47</span><span>2:52</span></div></div></div>
+      <div class="phone"><div class="notch"></div>
+        <div class="wave"><i style="height:28px"></i><i style="height:50px"></i><i style="height:70px"></i><i style="height:40px"></i><i style="height:58px"></i><i style="height:23px"></i><i class="dim" style="height:36px"></i><i class="dim" style="height:16px"></i></div>
+        <div class="meta a"></div><div class="meta b"></div>
+        <div class="bar"><div class="track"><div class="fill"></div></div>
+          <div class="times"><span>1:47</span><span>2:52</span></div></div></div>
+      <div class="phone"><div class="notch"></div>
+        <div class="wave"><i style="height:28px"></i><i style="height:50px"></i><i style="height:70px"></i><i style="height:40px"></i><i style="height:58px"></i><i style="height:23px"></i><i class="dim" style="height:36px"></i><i class="dim" style="height:16px"></i></div>
+        <div class="meta a"></div><div class="meta b"></div>
+        <div class="bar"><div class="track"><div class="fill"></div></div>
+          <div class="times"><span>1:47</span><span>2:52</span></div></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- 2 — host / join -->
+<section class="slide" id="s2">
+  <div class="glowC"></div>
+  <div class="pad">
+    <div class="eyebrow">How it works</div>
+    <h2>One phone hosts.<br><span class="accent">Everyone else joins.</span></h2>
+    <p class="sub">No pairing codes, no signup, no cloud. Devices find each other on WiFi —
+      and when there's no network at all, they talk directly over Apple's peer-to-peer radio.</p>
+    <div class="stage">
+      <div class="phone"><span class="tag join">JOINED</span><div class="notch"></div>
+        <div class="wave"><i style="height:28px"></i><i style="height:50px"></i><i style="height:70px"></i><i style="height:40px"></i><i style="height:58px"></i><i style="height:23px"></i><i class="dim" style="height:36px"></i><i class="dim" style="height:16px"></i></div>
+        <div class="meta a"></div><div class="meta b"></div>
+        <div class="bar"><div class="track"><div class="fill"></div></div>
+          <div class="times"><span>1:47</span><span>2:52</span></div></div></div>
+      <div class="phone"><span class="tag host">HOST</span><div class="notch"></div>
+        <div class="wave"><i style="height:28px"></i><i style="height:50px"></i><i style="height:70px"></i><i style="height:40px"></i><i style="height:58px"></i><i style="height:23px"></i><i class="dim" style="height:36px"></i><i class="dim" style="height:16px"></i></div>
+        <div class="meta a"></div><div class="meta b"></div>
+        <div class="bar"><div class="track"><div class="fill"></div></div>
+          <div class="times"><span>1:47</span><span>2:52</span></div></div></div>
+      <div class="phone"><span class="tag join">JOINED</span><div class="notch"></div>
+        <div class="wave"><i style="height:28px"></i><i style="height:50px"></i><i style="height:70px"></i><i style="height:40px"></i><i style="height:58px"></i><i style="height:23px"></i><i class="dim" style="height:36px"></i><i class="dim" style="height:16px"></i></div>
+        <div class="meta a"></div><div class="meta b"></div>
+        <div class="bar"><div class="track"><div class="fill"></div></div>
+          <div class="times"><span>1:47</span><span>2:52</span></div></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- 3 — not just music -->
+<section class="slide" id="s3">
+  <div class="glow"></div>
+  <div class="pad">
+    <div class="eyebrow">What you can play</div>
+    <h2>Not just music.</h2>
+    <div class="grid">
+      <div class="card"><div class="ic">🎵</div><h3>Music</h3>
+        <p>Your own files, or Apple Music.</p></div>
+      <div class="card"><div class="ic">🎙️</div><h3>Podcasts</h3>
+        <p>Search, charts, any RSS feed. Downloaded episodes work with no signal.</p></div>
+      <div class="card"><div class="ic">📚</div><h3>Audiobooks</h3>
+        <p>Thousands of public-domain books from LibriVox.</p></div>
+      <div class="card"><div class="ic">🎬</div><h3>Video</h3>
+        <p>Watch together — a few phones, one film, frames in step.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- 4 — what it isn't -->
+<section class="slide" id="s4">
+  <div class="glowC"></div>
+  <div class="pad">
+    <div class="eyebrow">Why it stays in sync</div>
+    <h2>It isn't Bluetooth.</h2>
+    <div class="cols">
+      <div class="col no">
+        <div class="lbl">Doesn't need</div>
+        <ul>
+          <li><span class="x">✕</span> Bluetooth</li>
+          <li><span class="x">✕</span> An account</li>
+          <li><span class="x">✕</span> A cable or dongle</li>
+          <li><span class="x">✕</span> A speaker</li>
+          <li><span class="x">✕</span> A WiFi router</li>
+        </ul>
+      </div>
+      <div class="col yes">
+        <div class="lbl">Just needs</div>
+        <ul>
+          <li><span class="ck">✓</span> Two or more iPhones</li>
+          <li><span class="ck">✓</span> The same WiFi, or none</li>
+        </ul>
+        <p class="sub" style="font-size:19px;margin-top:16px">
+          Bluetooth's latency is unpredictable and unfixable from an app. This is a
+          direct WiFi connection, which is exactly why it holds together.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 5 — the engineering -->
+<section class="slide" id="s5">
+  <div class="glow"></div>
+  <div class="pad">
+    <div class="eyebrow">Under the hood</div>
+    <h2>Phones agreeing on <span class="accent">what time it is.</span></h2>
+    <div class="steps">
+      <div class="step"><div class="num">1</div><div>
+        <h4>Measure the clock gap</h4>
+        <p>An NTP-style handshake on join — ping, pong, reject the round-trip outliers, take the median.</p></div></div>
+      <div class="step"><div class="num">2</div><div>
+        <h4>Schedule, don't shout</h4>
+        <p>The host never says "play now." It says "start this track at instant T," and every phone converts T into its own clock.</p></div></div>
+      <div class="step"><div class="num">3</div><div>
+        <h4>Correct without clicks</h4>
+        <p>Drift on local files is trimmed by nudging playback rate a fraction of a percent — inaudible — instead of seeking. A test fails the build if any correction floor regresses past 50 ms.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<script>
+  var n = new URLSearchParams(location.search).get('slide') || '1';
+  document.body.className = 's' + n;
+</script>
+</body>
+</html>
