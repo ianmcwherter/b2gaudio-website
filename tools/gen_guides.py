@@ -18,7 +18,7 @@ APPS = {
         name="B2Gaudio", store=B2G_STORE, app_id="6759938468", accent="#FF6B35", accent_dim="#CC5529",
         home="/", home_label="B2Gaudio Home",
         logo='B2G<span>audio</span>', support="support.html", privacy="privacy.html", terms="terms.html",
-        og_image="https://b2gaudio.com/og-image.png",
+        og_image="https://b2gaudio.com/og-image.png", icon="favicon.png",
         cta_top="Download B2Gaudio, free", cta_bottom="Get B2Gaudio on the App Store",
     ),
     "dd": dict(
@@ -26,7 +26,7 @@ APPS = {
         home="digitaldecks.html", home_label="Digital Decks Home",
         logo='Digital <span>Decks</span>', support="digitaldecks-support.html",
         privacy="digitaldecks-privacy.html", terms="digitaldecks-terms.html",
-        og_image=None,
+        og_image=None, icon="digitaldecks-icon.png",
         cta_top="Get Digital Decks on the App Store", cta_bottom="Download Digital Decks",
     ),
 }
@@ -82,7 +82,10 @@ def render(p):
     }
     og_img = ""
     card = "summary"
-    if app["og_image"]:
+    if not app["og_image"]:
+        og_img = (f'<meta property="og:image" content="https://b2gaudio.com/{app["icon"]}">\n'
+                  f'<meta name="twitter:image" content="https://b2gaudio.com/{app["icon"]}">\n')
+    else:
         card = "summary_large_image"
         og_img = (f'<meta property="og:image" content="{app["og_image"]}">\n'
                   f'<meta property="og:image:width" content="1200">\n<meta property="og:image:height" content="630">\n'
@@ -98,6 +101,7 @@ def render(p):
 <meta name="description" content="{esc(p['desc'])}">
 <link rel="canonical" href="{url}">
 <meta name="apple-itunes-app" content="app-id={app['app_id']}">
+<link rel="icon" type="image/png" href="{app['icon']}">
 <meta property="og:type" content="article">
 <meta property="og:site_name" content="{app['name']}">
 <meta property="og:title" content="{esc(p['og_title'])}">
