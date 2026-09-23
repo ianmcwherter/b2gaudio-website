@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pokémon Card Collection Tracker App for Kids — Digital Decks</title>
+<meta name="description" content="Track a Pokémon card collection on iPhone or iPad: scan cards in, count copies, filter by type, set or rarity, and see a rough total value. A separate profile for each kid.">
+<link rel="canonical" href="https://b2gaudio.com/digitaldecks-pokemon-card-collection-tracker.html">
+<meta name="apple-itunes-app" content="app-id=6794926765">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Digital Decks">
+<meta property="og:title" content="A Pokémon card collection tracker for kids">
+<meta property="og:description" content="Track a Pokémon card collection on iPhone or iPad: scan cards in, count copies, filter by type, set or rarity, and see a rough total value. A separate profile for each kid.">
+<meta property="og:url" content="https://b2gaudio.com/digitaldecks-pokemon-card-collection-tracker.html">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="A Pokémon card collection tracker for kids">
+<meta name="twitter:description" content="Track a Pokémon card collection on iPhone or iPad: scan cards in, count copies, filter by type, set or rarity, and see a rough total value. A separate profile for each kid.">
+<style>
+:root{--bg:#0A0A0F;--surface:#151520;--surface2:#1E1E2E;--accent:#2FA8FF;--accent-dim:#1F8AD6;--text:#F5F5F7;--text2:#A1A1AA;--text3:#71717A;--border:#2A2A3A}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,'SF Pro Display','Segoe UI',Roboto,sans-serif;background:var(--bg);color:var(--text);line-height:1.6;-webkit-font-smoothing:antialiased}
+a{color:var(--accent);text-decoration:none}a:hover{text-decoration:underline}
+nav{position:fixed;top:0;width:100%;z-index:100;background:rgba(10,10,15,.85);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-bottom:1px solid var(--border)}
+.nav-inner{max-width:1100px;margin:0 auto;padding:16px 24px;display:flex;justify-content:space-between;align-items:center}
+.logo{display:flex;align-items:center;gap:10px}
+.logo-text{font-size:1.3rem;font-weight:700;color:var(--text)}.logo-text span{color:var(--accent)}
+.nav-links{list-style:none;display:flex;gap:22px;align-items:center}.nav-links a{color:var(--text2);font-size:.95rem}.nav-links a.btn{color:#fff}
+.btn{display:inline-block;background:var(--accent);color:#fff;padding:12px 22px;border-radius:999px;font-weight:600}.btn:hover{background:var(--accent-dim);text-decoration:none}
+main{max-width:820px;margin:0 auto;padding:120px 24px 40px}
+h1{font-size:clamp(28px,5vw,44px);line-height:1.15;letter-spacing:-.02em;margin-bottom:16px}
+.sub{color:var(--text2);font-size:1.15rem;margin-bottom:8px}
+h2{font-size:1.6rem;margin:36px 0 12px;letter-spacing:-.01em}
+p{margin-bottom:14px}
+ul.plain{margin:0 0 14px 20px}ul.plain li{margin-bottom:6px}
+.answer{background:var(--surface);border:1px solid var(--border);border-left:3px solid var(--accent);border-radius:14px;padding:24px;margin:24px 0}.answer p:last-child{margin-bottom:0}
+.steps{display:grid;gap:14px;margin:18px 0}
+.step{display:flex;gap:14px;background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:18px}
+.step .n{flex:0 0 auto;width:30px;height:30px;border-radius:50%;background:var(--accent);color:#fff;font-weight:700;display:grid;place-items:center}
+.step h3{font-size:1.05rem;margin-bottom:2px}.step p{color:var(--text2);margin:0}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px;margin:18px 0}
+.card{background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:20px}.card h3{font-size:1.05rem;margin-bottom:6px}.card p{color:var(--text2);font-size:.95rem;margin:0}
+table{width:100%;border-collapse:collapse;margin:18px 0;font-size:.95rem}th,td{text-align:left;padding:10px 12px;border-bottom:1px solid var(--border);vertical-align:top}th{color:var(--text2);font-weight:600}
+.faq h3{font-size:1.08rem;margin:22px 0 6px}.faq p{color:var(--text2)}
+.cta-row{margin:26px 0}
+.related{display:flex;flex-wrap:wrap;gap:10px;margin-top:10px}.related a{background:var(--surface);border:1px solid var(--border);border-radius:999px;padding:8px 14px;color:var(--text);font-size:.9rem}
+footer{border-top:1px solid var(--border);margin-top:50px}.footer-inner{max-width:1100px;margin:0 auto;padding:30px 24px;text-align:center}
+.footer-links{display:flex;gap:20px;justify-content:center;flex-wrap:wrap;margin-bottom:10px}.footer-links a{color:var(--text2);font-size:.9rem}
+.copyright{color:var(--text3);font-size:.85rem}
+@media (max-width:768px){.nav-links{display:none}}
+</style>
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "FAQPage",
+ "mainEntity": [
+  {
+   "@type": "Question",
+   "name": "What's the easiest way to keep track of a Pokémon card collection?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "Scan the cards into an app that counts copies for you. Digital Decks reads each card's collector number, adds it to the collection, and keeps a count of duplicates."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "Can two kids use the same iPad?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "Yes. Each child gets their own profile with a separate collection and deck list, and neither can change the other's cards."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "Does the collection sync between devices?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "No. There's no account and no cloud sync. The collection stays on the device where it was scanned."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "How is the total value worked out?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "It adds up rough asking-price estimates for each card, counting copies. It's a ballpark figure, not an appraisal, and cards without a price yet can't add to it."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "Can it track Japanese cards?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "No. Digital Decks works with English-language cards."
+   }
+  }
+ ]
+}
+</script>
+</head>
+<body>
+<nav><div class="nav-inner">
+  <a href="digitaldecks.html" class="logo"><span class="logo-text">Digital <span>Decks</span></span></a>
+  <ul class="nav-links"><li><a href="digitaldecks.html">Home</a></li><li><a href="digitaldecks-support.html">Support</a></li><li><a href="https://apps.apple.com/us/app/digital-decks-card-scanner/id6794926765" class="btn">Get the App</a></li></ul>
+<!-- app-menu:start -->
+<!-- APP MENU — injected into every page by tools/add_app_menu.py. Edit here, then re-run it. -->
+<style>
+/* A single menu listing every app, in the top right of the nav bar.
+   It matters most on phones: every page hides .nav-links under 768px, so before this the
+   site had NO navigation at all on a phone — you could reach a privacy page from Google
+   and have no way to get anywhere else. */
+.app-menu { position: relative; margin-left: 20px; }
+.app-menu-btn {
+    display: flex; flex-direction: column; justify-content: center; gap: 5px;
+    width: 42px; height: 38px; padding: 0 8px; cursor: pointer;
+    background: transparent; border: 1px solid var(--border); border-radius: 9px;
+    transition: border-color .2s, background .2s;
+}
+.app-menu-btn:hover { border-color: var(--accent); background: rgba(255,255,255,.04); }
+.app-menu-btn span {
+    display: block; height: 2px; width: 100%; border-radius: 2px;
+    background: var(--text); transition: transform .25s, opacity .2s;
+}
+.app-menu[open] .app-menu-btn span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.app-menu[open] .app-menu-btn span:nth-child(2) { opacity: 0; }
+.app-menu[open] .app-menu-btn span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+.app-menu-panel {
+    position: absolute; top: calc(100% + 12px); right: 0; z-index: 200;
+    min-width: 250px; padding: 8px;
+    background: var(--surface); border: 1px solid var(--border); border-radius: 14px;
+    box-shadow: 0 24px 60px rgba(0,0,0,.5);
+}
+.app-menu-panel h4 {
+    font-size: .7rem; letter-spacing: 1.2px; text-transform: uppercase;
+    color: var(--text2); font-weight: 600; padding: 10px 12px 6px;
+}
+.app-menu-panel a {
+    display: block; padding: 10px 12px; border-radius: 9px;
+    color: var(--text); text-decoration: none; font-size: .95rem; font-weight: 500;
+    transition: background .15s;
+}
+.app-menu-panel a:hover { background: rgba(255,255,255,.06); }
+.app-menu-panel a small { display: block; color: var(--text2); font-size: .78rem; font-weight: 400; }
+/* The page you are on. A trailing marker lands under the description on its own line and
+   reads as a stray full stop, so the cue is an edge instead. */
+.app-menu-panel a[aria-current="page"] {
+    background: rgba(255,255,255,.06);
+    box-shadow: inset 3px 0 0 var(--accent);
+}
+/* The button is the only navigation on a phone, so it must never be the thing that is hidden. */
+@media (max-width: 768px) { .app-menu { display: block; margin-left: auto; } }
+</style>
+
+<details class="app-menu">
+    <summary class="app-menu-btn" aria-label="All apps" title="All apps">
+        <span></span><span></span><span></span>
+    </summary>
+    <nav class="app-menu-panel" aria-label="All apps">
+        <h4>Apps</h4>
+        <a href="/">B2Gaudio<small>Listen to music together over WiFi</small></a>
+        <a href="/drivemail.html">DriveMail Voice<small>Your email, read aloud while you drive</small></a>
+        <a href="/digitaldecks.html">Digital Decks<small>Scan, collect and build card decks</small></a>
+        <a href="/commonhealth.html">CommonHealth<small>Appeal a denied insurance claim</small></a>
+    </nav>
+</details>
+
+<script>
+// Close on outside click and on Escape. <details> gives us the open/close behaviour and
+// keyboard support for free; these are the two things it does not do.
+(function () {
+    var menu = document.currentScript.parentNode.querySelector('.app-menu')
+        || document.querySelector('.app-menu');
+    if (!menu) return;
+    document.addEventListener('click', function (e) {
+        if (menu.open && !menu.contains(e.target)) menu.open = false;
+    });
+    document.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape') menu.open = false;
+    });
+    // Mark the page you are on, so the menu answers "where am I" as well as "where can I go".
+    var here = location.pathname.replace(/\/index\.html$/, '/') || '/';
+    menu.querySelectorAll('a').forEach(function (a) {
+        var target = new URL(a.getAttribute('href'), location.origin).pathname;
+        if (target === here) a.setAttribute('aria-current', 'page');
+    });
+})();
+</script>
+
+<!-- app-menu:end -->
+</div></nav>
+<main>
+  <h1>A Pokémon card collection tracker for kids</h1>
+  <p class="sub">Scan the shoebox once. Know what you have, how many, and roughly what it's worth.</p>
+  <div class="answer">
+    <p><strong>Short answer:</strong> <strong>Digital Decks</strong> turns scanned cards into a digital collection. It tracks every card and how many copies you have, filters by type, set or rarity, and shows a rough total value. Each child gets their own profile so nobody can change anybody else's cards. There's no account, and the collection stays on the device.</p>
+    <p class="cta-row"><a class="btn" href="https://apps.apple.com/us/app/digital-decks-card-scanner/id6794926765">Get Digital Decks on the App Store</a></p>
+  </div>
+  <h2>How to track a collection</h2>
+  <div class="steps">
+    <div class="step"><div class="n">1</div><div><h3>Make a profile for each kid</h3><p>A name, a picture and a colour. Their cards and decks stay separate.</p></div></div>
+    <div class="step"><div class="n">2</div><div><h3>Scan cards in</h3><p>Point the camera at the collector number. For a big stack, turn on Add cards automatically.</p></div></div>
+    <div class="step"><div class="n">3</div><div><h3>Pick the exact version</h3><p>Regular, holo or reverse holo, so the value matches the card you actually have.</p></div></div>
+    <div class="step"><div class="n">4</div><div><h3>Adjust copies</h3><p>Tap a card to open it and use the big plus and minus buttons.</p></div></div>
+  </div>
+  <h2>Finding things in the collection</h2>
+  <div class="grid">
+    <div class="card"><h3>Filter</h3><p>By type, set or rarity.</p></div>
+    <div class="card"><h3>Search</h3><p>Find a card by name.</p></div>
+    <div class="card"><h3>Total value</h3><p>A rough estimate for the whole collection, counting copies.</p></div>
+    <div class="card"><h3>Build decks</h3><p>Turn the collection into a playable deck with the deck builder.</p></div>
+  </div>
+  <h2>Privacy and where the data lives</h2>
+  <ul class="plain">
+    <li>No accounts, no ads, no analytics, no chat.</li>
+    <li>The collection is stored on the device. There's no cloud sync, so a collection lives on the iPhone or iPad where it was scanned.</li>
+    <li>The one link out of the app sits behind a parental gate.</li>
+  </ul>
+  <h2>Questions people ask</h2>
+  <div class="faq">
+    <h3>What's the easiest way to keep track of a Pokémon card collection?</h3>
+    <p>Scan the cards into an app that counts copies for you. Digital Decks reads each card's collector number, adds it to the collection, and keeps a count of duplicates.</p>
+    <h3>Can two kids use the same iPad?</h3>
+    <p>Yes. Each child gets their own profile with a separate collection and deck list, and neither can change the other's cards.</p>
+    <h3>Does the collection sync between devices?</h3>
+    <p>No. There's no account and no cloud sync. The collection stays on the device where it was scanned.</p>
+    <h3>How is the total value worked out?</h3>
+    <p>It adds up rough asking-price estimates for each card, counting copies. It's a ballpark figure, not an appraisal, and cards without a price yet can't add to it.</p>
+    <h3>Can it track Japanese cards?</h3>
+    <p>No. Digital Decks works with English-language cards.</p>
+  </div>
+  <p class="cta-row"><a class="btn" href="https://apps.apple.com/us/app/digital-decks-card-scanner/id6794926765">Download Digital Decks</a></p>
+  <h2>Related guides</h2>
+  <div class="related">
+    <a href="digitaldecks-pokemon-card-scanner.html">Pokémon card scanner</a>
+    <a href="digitaldecks-what-is-my-pokemon-card-worth.html">What is my card worth?</a>
+    <a href="digitaldecks-pokemon-card-rarity-symbols.html">Rarity symbols explained</a>
+    <a href="digitaldecks-build-deck-from-cards-you-own.html">Build a deck from cards you own</a>
+    <a href="digitaldecks.html">Digital Decks home</a>
+  </div>
+</main>
+<footer><div class="footer-inner">
+  <div class="footer-links"><a href="digitaldecks.html">Digital Decks Home</a><a href="digitaldecks-privacy.html">Privacy</a><a href="digitaldecks-terms.html">Terms</a><a href="digitaldecks-support.html">Support</a></div>
+  <p class="copyright">&copy; 2026 B2Gaudio. All rights reserved.</p>
+</div></footer>
+</body>
+</html>

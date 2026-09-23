@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>How to Build a Pokémon Deck From the Cards You Own — Digital Decks</title>
+<meta name="description" content="Build a legal 60-card Pokémon deck from the cards you already have: pick a type, keep evolution lines together, add Trainers and match Energy. Digital Decks does it for you.">
+<link rel="canonical" href="https://b2gaudio.com/digitaldecks-build-deck-from-cards-you-own.html">
+<meta name="apple-itunes-app" content="app-id=6794926765">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Digital Decks">
+<meta property="og:title" content="How to build a Pokémon deck from cards you already own">
+<meta property="og:description" content="Build a legal 60-card Pokémon deck from the cards you already have: pick a type, keep evolution lines together, add Trainers and match Energy. Digital Decks does it for you.">
+<meta property="og:url" content="https://b2gaudio.com/digitaldecks-build-deck-from-cards-you-own.html">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="How to build a Pokémon deck from cards you already own">
+<meta name="twitter:description" content="Build a legal 60-card Pokémon deck from the cards you already have: pick a type, keep evolution lines together, add Trainers and match Energy. Digital Decks does it for you.">
+<style>
+:root{--bg:#0A0A0F;--surface:#151520;--surface2:#1E1E2E;--accent:#2FA8FF;--accent-dim:#1F8AD6;--text:#F5F5F7;--text2:#A1A1AA;--text3:#71717A;--border:#2A2A3A}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,'SF Pro Display','Segoe UI',Roboto,sans-serif;background:var(--bg);color:var(--text);line-height:1.6;-webkit-font-smoothing:antialiased}
+a{color:var(--accent);text-decoration:none}a:hover{text-decoration:underline}
+nav{position:fixed;top:0;width:100%;z-index:100;background:rgba(10,10,15,.85);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-bottom:1px solid var(--border)}
+.nav-inner{max-width:1100px;margin:0 auto;padding:16px 24px;display:flex;justify-content:space-between;align-items:center}
+.logo{display:flex;align-items:center;gap:10px}
+.logo-text{font-size:1.3rem;font-weight:700;color:var(--text)}.logo-text span{color:var(--accent)}
+.nav-links{list-style:none;display:flex;gap:22px;align-items:center}.nav-links a{color:var(--text2);font-size:.95rem}.nav-links a.btn{color:#fff}
+.btn{display:inline-block;background:var(--accent);color:#fff;padding:12px 22px;border-radius:999px;font-weight:600}.btn:hover{background:var(--accent-dim);text-decoration:none}
+main{max-width:820px;margin:0 auto;padding:120px 24px 40px}
+h1{font-size:clamp(28px,5vw,44px);line-height:1.15;letter-spacing:-.02em;margin-bottom:16px}
+.sub{color:var(--text2);font-size:1.15rem;margin-bottom:8px}
+h2{font-size:1.6rem;margin:36px 0 12px;letter-spacing:-.01em}
+p{margin-bottom:14px}
+ul.plain{margin:0 0 14px 20px}ul.plain li{margin-bottom:6px}
+.answer{background:var(--surface);border:1px solid var(--border);border-left:3px solid var(--accent);border-radius:14px;padding:24px;margin:24px 0}.answer p:last-child{margin-bottom:0}
+.steps{display:grid;gap:14px;margin:18px 0}
+.step{display:flex;gap:14px;background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:18px}
+.step .n{flex:0 0 auto;width:30px;height:30px;border-radius:50%;background:var(--accent);color:#fff;font-weight:700;display:grid;place-items:center}
+.step h3{font-size:1.05rem;margin-bottom:2px}.step p{color:var(--text2);margin:0}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px;margin:18px 0}
+.card{background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:20px}.card h3{font-size:1.05rem;margin-bottom:6px}.card p{color:var(--text2);font-size:.95rem;margin:0}
+table{width:100%;border-collapse:collapse;margin:18px 0;font-size:.95rem}th,td{text-align:left;padding:10px 12px;border-bottom:1px solid var(--border);vertical-align:top}th{color:var(--text2);font-weight:600}
+.faq h3{font-size:1.08rem;margin:22px 0 6px}.faq p{color:var(--text2)}
+.cta-row{margin:26px 0}
+.related{display:flex;flex-wrap:wrap;gap:10px;margin-top:10px}.related a{background:var(--surface);border:1px solid var(--border);border-radius:999px;padding:8px 14px;color:var(--text);font-size:.9rem}
+footer{border-top:1px solid var(--border);margin-top:50px}.footer-inner{max-width:1100px;margin:0 auto;padding:30px 24px;text-align:center}
+.footer-links{display:flex;gap:20px;justify-content:center;flex-wrap:wrap;margin-bottom:10px}.footer-links a{color:var(--text2);font-size:.9rem}
+.copyright{color:var(--text3);font-size:.85rem}
+@media (max-width:768px){.nav-links{display:none}}
+</style>
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "FAQPage",
+ "mainEntity": [
+  {
+   "@type": "Question",
+   "name": "How many cards are in a Pokémon deck?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "Exactly 60, with no more than 4 copies of any card with the same name, except Basic Energy."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "How many Energy cards should a deck have?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "Enough to pay for your attackers' attacks. Count what they cost and pack that type of Energy to match. Digital Decks works this out from the attacks on the cards you own."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "What is Rare Candy for?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "Rare Candy lets a Basic Pokémon evolve straight into its Stage 2, so your biggest attacker can arrive a turn sooner."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "Can I build a deck if I don't have 60 cards?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "Digital Decks will build the best deck it can and tell you how many more cards you need, plus which ones would help most."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "Is the deck tournament legal?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "It follows the deck-building rules (60 cards, 4-copy limit, Basic Pokémon, complete evolution lines). It doesn't check which sets are currently legal in Standard format."
+   }
+  }
+ ]
+}
+</script>
+</head>
+<body>
+<nav><div class="nav-inner">
+  <a href="digitaldecks.html" class="logo"><span class="logo-text">Digital <span>Decks</span></span></a>
+  <ul class="nav-links"><li><a href="digitaldecks.html">Home</a></li><li><a href="digitaldecks-support.html">Support</a></li><li><a href="https://apps.apple.com/us/app/digital-decks-card-scanner/id6794926765" class="btn">Get the App</a></li></ul>
+<!-- app-menu:start -->
+<!-- APP MENU — injected into every page by tools/add_app_menu.py. Edit here, then re-run it. -->
+<style>
+/* A single menu listing every app, in the top right of the nav bar.
+   It matters most on phones: every page hides .nav-links under 768px, so before this the
+   site had NO navigation at all on a phone — you could reach a privacy page from Google
+   and have no way to get anywhere else. */
+.app-menu { position: relative; margin-left: 20px; }
+.app-menu-btn {
+    display: flex; flex-direction: column; justify-content: center; gap: 5px;
+    width: 42px; height: 38px; padding: 0 8px; cursor: pointer;
+    background: transparent; border: 1px solid var(--border); border-radius: 9px;
+    transition: border-color .2s, background .2s;
+}
+.app-menu-btn:hover { border-color: var(--accent); background: rgba(255,255,255,.04); }
+.app-menu-btn span {
+    display: block; height: 2px; width: 100%; border-radius: 2px;
+    background: var(--text); transition: transform .25s, opacity .2s;
+}
+.app-menu[open] .app-menu-btn span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.app-menu[open] .app-menu-btn span:nth-child(2) { opacity: 0; }
+.app-menu[open] .app-menu-btn span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+.app-menu-panel {
+    position: absolute; top: calc(100% + 12px); right: 0; z-index: 200;
+    min-width: 250px; padding: 8px;
+    background: var(--surface); border: 1px solid var(--border); border-radius: 14px;
+    box-shadow: 0 24px 60px rgba(0,0,0,.5);
+}
+.app-menu-panel h4 {
+    font-size: .7rem; letter-spacing: 1.2px; text-transform: uppercase;
+    color: var(--text2); font-weight: 600; padding: 10px 12px 6px;
+}
+.app-menu-panel a {
+    display: block; padding: 10px 12px; border-radius: 9px;
+    color: var(--text); text-decoration: none; font-size: .95rem; font-weight: 500;
+    transition: background .15s;
+}
+.app-menu-panel a:hover { background: rgba(255,255,255,.06); }
+.app-menu-panel a small { display: block; color: var(--text2); font-size: .78rem; font-weight: 400; }
+/* The page you are on. A trailing marker lands under the description on its own line and
+   reads as a stray full stop, so the cue is an edge instead. */
+.app-menu-panel a[aria-current="page"] {
+    background: rgba(255,255,255,.06);
+    box-shadow: inset 3px 0 0 var(--accent);
+}
+/* The button is the only navigation on a phone, so it must never be the thing that is hidden. */
+@media (max-width: 768px) { .app-menu { display: block; margin-left: auto; } }
+</style>
+
+<details class="app-menu">
+    <summary class="app-menu-btn" aria-label="All apps" title="All apps">
+        <span></span><span></span><span></span>
+    </summary>
+    <nav class="app-menu-panel" aria-label="All apps">
+        <h4>Apps</h4>
+        <a href="/">B2Gaudio<small>Listen to music together over WiFi</small></a>
+        <a href="/drivemail.html">DriveMail Voice<small>Your email, read aloud while you drive</small></a>
+        <a href="/digitaldecks.html">Digital Decks<small>Scan, collect and build card decks</small></a>
+        <a href="/commonhealth.html">CommonHealth<small>Appeal a denied insurance claim</small></a>
+    </nav>
+</details>
+
+<script>
+// Close on outside click and on Escape. <details> gives us the open/close behaviour and
+// keyboard support for free; these are the two things it does not do.
+(function () {
+    var menu = document.currentScript.parentNode.querySelector('.app-menu')
+        || document.querySelector('.app-menu');
+    if (!menu) return;
+    document.addEventListener('click', function (e) {
+        if (menu.open && !menu.contains(e.target)) menu.open = false;
+    });
+    document.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape') menu.open = false;
+    });
+    // Mark the page you are on, so the menu answers "where am I" as well as "where can I go".
+    var here = location.pathname.replace(/\/index\.html$/, '/') || '/';
+    menu.querySelectorAll('a').forEach(function (a) {
+        var target = new URL(a.getAttribute('href'), location.origin).pathname;
+        if (target === here) a.setAttribute('aria-current', 'page');
+    });
+})();
+</script>
+
+<!-- app-menu:end -->
+</div></nav>
+<main>
+  <h1>How to build a Pokémon deck from cards you already own</h1>
+  <p class="sub">Pick a type, build around your best attacker, and fill out 60 cards with what's in the box.</p>
+  <div class="answer">
+    <p><strong>Short answer:</strong> a Pokémon deck is exactly 60 cards, with no more than 4 copies of any card with the same name (Basic Energy doesn't count) and at least one Basic Pokémon. Pick one or two types, build around an attacker and its whole evolution line, add Trainers that draw and search, then add enough Energy to pay for your attacks. <strong>Digital Decks</strong> does this automatically from the cards your child has scanned, rates the deck out of five stars, and lists the cards that would make it better.</p>
+    <p class="cta-row"><a class="btn" href="https://apps.apple.com/us/app/digital-decks-card-scanner/id6794926765">Get Digital Decks on the App Store</a></p>
+  </div>
+  <h2>The deck-building rules</h2>
+  <ul class="plain">
+    <li>Exactly 60 cards.</li>
+    <li>No more than 4 copies of a card with the same name. Basic Energy is the exception.</li>
+    <li>At least one Basic Pokémon, or you can't start the game.</li>
+    <li>Evolutions need the stage before them in play. Rare Candy is the exception: it lets a Basic Pokémon evolve straight into its Stage 2.</li>
+    <li>When you play: one Supporter per turn, as many Items as you like, and only one Stadium in play at a time.</li>
+  </ul>
+  <h2>Building it by hand</h2>
+  <div class="steps">
+    <div class="step"><div class="n">1</div><div><h3>Sort the cards by type</h3><p>Fire, Water, Grass and so on. One or two types keeps the Energy simple.</p></div></div>
+    <div class="step"><div class="n">2</div><div><h3>Choose a main attacker and its whole line</h3><p>If your attacker evolves, include the Basic and Stage 1 too, with more copies of the lower stages.</p></div></div>
+    <div class="step"><div class="n">3</div><div><h3>Add Trainers</h3><p>Supporters that draw cards, Items that search for Pokémon, and Rare Candy if you're running a Stage 2.</p></div></div>
+    <div class="step"><div class="n">4</div><div><h3>Add Energy to match the attacks</h3><p>Count what your attackers need and pack enough of that Energy type.</p></div></div>
+    <div class="step"><div class="n">5</div><div><h3>Count to 60</h3><p>Trim anything over 4 copies. If you're short, note what's missing.</p></div></div>
+  </div>
+  <h2>How Digital Decks builds it</h2>
+  <ul class="plain">
+    <li>Pick one or two types and it builds the strongest deck it can from cards the child actually owns. It never adds a card they don't have.</li>
+    <li>Evolution lines stay together, and Energy is matched to what the attackers cost.</li>
+    <li>Support cards are chosen by what they do, so the deck keeps room for search cards, Rare Candy and a Stadium.</li>
+    <li>Every deck gets a 1 to 5 star rating and a list of cards to look for. If the collection is short of 60, it says how many more cards are needed.</li>
+    <li>It explains how to play the deck in plain language, and only mentions cards that are really in it.</li>
+    <li>Save decks with a name, and choose to use each card in only one deck.</li>
+  </ul>
+  <p>It follows the deck-building rules above. It doesn't check which cards are currently allowed in tournament Standard format.</p>
+  <h2>Questions people ask</h2>
+  <div class="faq">
+    <h3>How many cards are in a Pokémon deck?</h3>
+    <p>Exactly 60, with no more than 4 copies of any card with the same name, except Basic Energy.</p>
+    <h3>How many Energy cards should a deck have?</h3>
+    <p>Enough to pay for your attackers' attacks. Count what they cost and pack that type of Energy to match. Digital Decks works this out from the attacks on the cards you own.</p>
+    <h3>What is Rare Candy for?</h3>
+    <p>Rare Candy lets a Basic Pokémon evolve straight into its Stage 2, so your biggest attacker can arrive a turn sooner.</p>
+    <h3>Can I build a deck if I don't have 60 cards?</h3>
+    <p>Digital Decks will build the best deck it can and tell you how many more cards you need, plus which ones would help most.</p>
+    <h3>Is the deck tournament legal?</h3>
+    <p>It follows the deck-building rules (60 cards, 4-copy limit, Basic Pokémon, complete evolution lines). It doesn't check which sets are currently legal in Standard format.</p>
+  </div>
+  <p class="cta-row"><a class="btn" href="https://apps.apple.com/us/app/digital-decks-card-scanner/id6794926765">Download Digital Decks</a></p>
+  <h2>Related guides</h2>
+  <div class="related">
+    <a href="digitaldecks-pokemon-card-scanner.html">Pokémon card scanner</a>
+    <a href="digitaldecks-what-is-my-pokemon-card-worth.html">What is my card worth?</a>
+    <a href="digitaldecks-pokemon-card-rarity-symbols.html">Rarity symbols explained</a>
+    <a href="digitaldecks-pokemon-card-collection-tracker.html">Collection tracker</a>
+    <a href="digitaldecks.html">Digital Decks home</a>
+  </div>
+</main>
+<footer><div class="footer-inner">
+  <div class="footer-links"><a href="digitaldecks.html">Digital Decks Home</a><a href="digitaldecks-privacy.html">Privacy</a><a href="digitaldecks-terms.html">Terms</a><a href="digitaldecks-support.html">Support</a></div>
+  <p class="copyright">&copy; 2026 B2Gaudio. All rights reserved.</p>
+</div></footer>
+</body>
+</html>
